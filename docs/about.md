@@ -2,6 +2,9 @@
 
 ## Overview
 
+![Robot Front](images/front1.png)
+
+
 Titan Robot is a ROS 2–based mobile robot platform designed to provide hands-on experience with modern robotics concepts.  
 It combines real hardware, real sensors, and real software workflows to help users understand how autonomous robots are built, programmed, and deployed.
 

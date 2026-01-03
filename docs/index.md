@@ -1,6 +1,6 @@
 # Introduction
 
-![Robot Front](images/front1.png)
+![Robot Front](images/1.png)
 
 [Github Link](https://github.com/MRS111-OS/titan_robot)
 
@@ -15,6 +15,8 @@ The platform combines reliable hardware with a flexible software stack, making i
 ---
 
 ## Design Goals
+
+![Robot diag](images/titan_diag.png)
 
 Titan Robot was designed with the following goals:
 
