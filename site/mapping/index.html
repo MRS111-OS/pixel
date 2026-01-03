@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Mapping - Titan Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Mapping";
+        var mkdocs_page_input_path = "mapping.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Titan Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../software/">Software Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bringup/">Robot Bringup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../visualization/">Visualization</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Mapping</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#slam-concepts">SLAM Concepts</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-slam">What is SLAM?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#inputs-used-for-slam">Inputs Used for SLAM</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#slam-toolbox-overview">SLAM Toolbox Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#starting-mapping-mode">Starting Mapping Mode</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#launch-required-components">Launch Required Components</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#launch-slam-toolbox-mapping-mode">Launch SLAM Toolbox (Mapping Mode)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#visualizing-the-map-in-rviz2">Visualizing the Map in RViz2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exploring-the-environment">Exploring the Environment</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mapping-tips">Mapping Tips</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#saving-the-map">Saving the Map</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#map-files-explained">Map Files Explained</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-mapping-issues">Common Mapping Issues</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#performance-considerations">Performance Considerations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#when-to-remap">When to Remap</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Titan Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Mapping</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="mapping-slam">Mapping &amp; SLAM</h1>
+<h2 id="overview">Overview</h2>
+<p>Mapping and SLAM (Simultaneous Localization and Mapping) enable Titan Robot to understand and navigate unknown environments.<br />
+This section explains how to create maps using <strong>SLAM Toolbox</strong>, how mapping works internally, and best practices for generating high-quality maps.</p>
+<p>Titan Robot performs <strong>2D LIDAR-based SLAM</strong> using wheel odometry and laser scan data.</p>
+<hr />
+<h2 id="slam-concepts">SLAM Concepts</h2>
+<h3 id="what-is-slam">What is SLAM?</h3>
+<p>SLAM allows a robot to:
+- Build a map of an unknown environment
+- Estimate its own position within that map at the same time</p>
+<p>Titan Robot uses:
+- <strong>Laser scans</strong> from the 2D LIDAR
+- <strong>Odometry</strong> from wheel encoders</p>
+<p>These inputs are fused by SLAM Toolbox to continuously update the map.</p>
+<hr />
+<h3 id="inputs-used-for-slam">Inputs Used for SLAM</h3>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Laser scans</td>
+<td>2D LIDAR (<code>/scan</code>)</td>
+</tr>
+<tr>
+<td>Odometry</td>
+<td>ESP32 encoder-based odometry (<code>/odom</code>)</td>
+</tr>
+<tr>
+<td>TF</td>
+<td>Robot frame transforms</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="slam-toolbox-overview">SLAM Toolbox Overview</h2>
+<p>SLAM Toolbox is the primary SLAM solution used on Titan Robot.</p>
+<p>It supports:
+- Online asynchronous mapping
+- Map serialization
+- Localization mode using saved maps</p>
+<p>SLAM Toolbox is preferred due to:
+- Robust loop closure
+- ROS 2 native support
+- Efficient performance on embedded computers</p>
+<hr />
+<h2 id="starting-mapping-mode">Starting Mapping Mode</h2>
+<h3 id="launch-required-components">Launch Required Components</h3>
+<p>Ensure the robot is powered on and bringup is running:</p>
+<pre><code class="language-bash">ros2 launch titan_bringup titan_bringup.launch.py
+</code></pre>
+<hr />
+<h3 id="launch-slam-toolbox-mapping-mode">Launch SLAM Toolbox (Mapping Mode)</h3>
+<p>In a new terminal:</p>
+<pre><code class="language-bash">ros2 launch slam_toolbox online_async_launch.py
+</code></pre>
+<p>This starts SLAM Toolbox in <strong>online mapping mode</strong>.</p>
+<hr />
+<h2 id="visualizing-the-map-in-rviz2">Visualizing the Map in RViz2</h2>
+<p>In RViz2:</p>
+<ul>
+<li>Set <strong>Fixed Frame</strong> to <code>map</code></li>
+<li>Add the following displays:</li>
+<li>Map</li>
+<li>LaserScan</li>
+<li>TF</li>
+<li>RobotModel</li>
+</ul>
+<p>You should see the map being generated in real time as the robot moves.</p>
+<p><img alt="Map" src="../images/map.jpeg" /></p>
+<hr />
+<h2 id="exploring-the-environment">Exploring the Environment</h2>
+<p>Use keyboard teleoperation to explore:</p>
+<pre><code class="language-bash">ros2 run teleop_twist_keyboard teleop_twist_keyboard
+</code></pre>
+<h3 id="mapping-tips">Mapping Tips</h3>
+<ul>
+<li>Move slowly and smoothly</li>
+<li>Avoid rapid rotations</li>
+<li>Ensure overlap between scans</li>
+<li>Cover all reachable areas</li>
+<li>Avoid bumping into obstacles</li>
+</ul>
+<p>Good exploration significantly improves map quality.</p>
+<hr />
+<h2 id="saving-the-map">Saving the Map</h2>
+<p>Once mapping is complete, save the map using RViz2:</p>
+<ol>
+<li>In RViz2, click <strong>Panels → Add New Panel</strong></li>
+<li>Select <strong>SlamToolboxPlugin</strong></li>
+<li>Click <strong>Save Map</strong></li>
+<li>Choose a directory and map name</li>
+</ol>
+<p>This generates:
+- <code>&lt;map_name&gt;.yaml</code>
+- <code>&lt;map_name&gt;.pgm</code></p>
+<p><img alt="map" src="../images/map.png" /></p>
+<hr />
+<h2 id="map-files-explained">Map Files Explained</h2>
+<ul>
+<li><strong>PGM file</strong> – Occupancy grid image</li>
+<li><strong>YAML file</strong> – Metadata describing:</li>
+<li>Resolution</li>
+<li>Origin</li>
+<li>Map image path</li>
+</ul>
+<p>Both files are required for localization and navigation.</p>
+<hr />
+<h2 id="common-mapping-issues">Common Mapping Issues</h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Possible Cause</th>
+<th>Recommended Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Map drift over time</td>
+<td>Inaccurate wheel odometry</td>
+<td>Calibrate wheel encoders and odometry parameters</td>
+</tr>
+<tr>
+<td></td>
+<td>Wheel slip on smooth surfaces</td>
+<td>Reduce speed and improve wheel traction</td>
+</tr>
+<tr>
+<td></td>
+<td>Fast or abrupt robot motion</td>
+<td>Move slowly and avoid sudden turns</td>
+</tr>
+<tr>
+<td>Poor map quality</td>
+<td>Incomplete environment coverage</td>
+<td>Ensure full exploration of the area</td>
+</tr>
+<tr>
+<td></td>
+<td>Rapid rotations</td>
+<td>Rotate slowly to maintain scan alignment</td>
+</tr>
+<tr>
+<td></td>
+<td>Sensor noise or vibration</td>
+<td>Secure LIDAR mounting and reduce vibration</td>
+</tr>
+<tr>
+<td>No map visible in RViz</td>
+<td>Incorrect fixed frame</td>
+<td>Set RViz fixed frame to <code>map</code></td>
+</tr>
+<tr>
+<td></td>
+<td>SLAM Toolbox not running</td>
+<td>Verify SLAM node is active</td>
+</tr>
+<tr>
+<td>Broken or distorted walls</td>
+<td>Odometry error accumulation</td>
+<td>Improve encoder resolution and tuning</td>
+</tr>
+<tr>
+<td></td>
+<td>Inconsistent scan overlap</td>
+<td>Maintain steady movement with good scan overlap</td>
+</tr>
+<tr>
+<td>Loop closure failure</td>
+<td>Insufficient environmental features</td>
+<td>Map areas with distinctive geometry</td>
+</tr>
+<tr>
+<td></td>
+<td>Poor revisit alignment</td>
+<td>Revisit locations slowly and from similar angles</td>
+</tr>
+</tbody>
+</table>
+<h2 id="performance-considerations">Performance Considerations</h2>
+<ul>
+<li>Mapping performance depends on:</li>
+<li>LIDAR scan rate</li>
+<li>Odometry accuracy</li>
+<li>CPU load</li>
+<li>Close unnecessary applications during mapping</li>
+<li>Avoid running heavy perception pipelines simultaneously</li>
+</ul>
+<hr />
+<h2 id="when-to-remap">When to Remap</h2>
+<p>You should create a new map if:
+- Environment layout changes significantly
+- LIDAR mounting position changes
+- Wheel parameters are updated
+- Odometry calibration is modified</p>
+<p>You have now successfully created a map using Titan Robot 🚀</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../visualization/" class="btn btn-neutral float-left" title="Visualization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../visualization/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

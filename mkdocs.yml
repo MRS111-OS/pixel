@@ -5,8 +5,9 @@ nav:
   - Hardware Architecture: hardware.md
   - Software Architecture: software.md
   - Robot Bringup: bringup.md
-  - About: about.md
   - Visualization: visualization.md
+  - Mapping: mapping.md
+  - About: about.md
 theme: readthedocs
 docs_dir: docs
 site_dir: site
