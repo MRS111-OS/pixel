@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Troubleshooting - Titan Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Troubleshooting";
+        var mkdocs_page_input_path = "troubleshoot.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Titan Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../software/">Software Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bringup/">Robot Bringup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../visualization/">Visualization</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mapping/">Mapping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../navigation/">Localization and Navigation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../networking/">Networking and Remote Access</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Troubleshooting</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#robot-bringup-issues">Robot Bringup Issues</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#motion-motor-issues">Motion &amp; Motor Issues</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#odometry-localization-issues">Odometry &amp; Localization Issues</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lidar-sensor-issues">LIDAR &amp; Sensor Issues</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#navigation-issues-nav2">Navigation Issues (Nav2)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#networking-remote-access-issues">Networking &amp; Remote Access Issues</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#general-debugging-checklist">General Debugging Checklist</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frequently-asked-questions-faq">Frequently Asked Questions (FAQ)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#q-the-robot-is-powered-on-but-not-responding-what-should-i-check-first">Q: The robot is powered on but not responding. What should I check first?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-why-does-the-robot-drift-even-when-standing-still">Q: Why does the robot drift even when standing still?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-do-i-need-to-remap-the-environment-every-time">Q: Do I need to remap the environment every time?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-can-i-run-rviz2-on-my-laptop-instead-of-the-robot">Q: Can I run RViz2 on my laptop instead of the robot?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-why-does-nav2-fail-to-generate-a-path">Q: Why does Nav2 fail to generate a path?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-is-it-safe-to-run-navigation-without-teleoperation-testing">Q: Is it safe to run navigation without teleoperation testing?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-can-i-add-new-sensors-to-the-robot">Q: Can I add new sensors to the robot?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-how-do-i-stop-the-robot-immediately-in-case-of-an-issue">Q: How do I stop the robot immediately in case of an issue?</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#when-to-seek-help">When to Seek Help</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Titan Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Troubleshooting</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="troubleshooting-faq">Troubleshooting &amp; FAQ</h1>
+<h2 id="overview">Overview</h2>
+<p>This section provides guidance for diagnosing and resolving common issues encountered while using Titan Robot.<br />
+It is intended as a quick reference during development, testing, and deployment.</p>
+<p>The <strong>Troubleshooting</strong> section focuses on symptom-based diagnosis, while the <strong>FAQ</strong> addresses common conceptual and usage questions.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="robot-bringup-issues">Robot Bringup Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Possible Cause</th>
+<th>Recommended Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bringup launch fails</td>
+<td>Workspace not built</td>
+<td>Run colcon build and source the workspace</td>
+</tr>
+<tr>
+<td>Nodes not starting</td>
+<td>Missing dependencies</td>
+<td>Install required ROS 2 packages</td>
+</tr>
+<tr>
+<td>RViz2 does not open</td>
+<td>Display issue or misconfiguration</td>
+<td>Launch RViz manually and check logs</td>
+</tr>
+<tr>
+<td>Robot description not visible</td>
+<td>URDF not loaded</td>
+<td>Verify robot_state_publisher is running</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="motion-motor-issues">Motion &amp; Motor Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Possible Cause</th>
+<th>Recommended Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Robot does not move</td>
+<td>No velocity commands</td>
+<td>Check /cmd_vel topic</td>
+</tr>
+<tr>
+<td>Wheels move unevenly</td>
+<td>PID not tuned</td>
+<td>Tune motor PID parameters</td>
+</tr>
+<tr>
+<td>Robot jerks or oscillates</td>
+<td>Aggressive control gains</td>
+<td>Reduce PID gains</td>
+</tr>
+<tr>
+<td>Motors unresponsive</td>
+<td>Power or wiring issue</td>
+<td>Verify motor power and connections</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="odometry-localization-issues">Odometry &amp; Localization Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Possible Cause</th>
+<th>Recommended Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Odometry not updating</td>
+<td>Serial communication failure</td>
+<td>Check ESP32 connection</td>
+</tr>
+<tr>
+<td>Robot pose jumps</td>
+<td>Incorrect initial pose</td>
+<td>Reset pose in RViz</td>
+</tr>
+<tr>
+<td>Drift at standstill</td>
+<td>Encoder noise</td>
+<td>Improve encoder filtering</td>
+</tr>
+<tr>
+<td>Robot rotates in place</td>
+<td>Incorrect wheel parameters</td>
+<td>Verify wheel separation and radius</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="lidar-sensor-issues">LIDAR &amp; Sensor Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Possible Cause</th>
+<th>Recommended Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No LIDAR data</td>
+<td>USB connection issue</td>
+<td>Reconnect LIDAR and restart driver</td>
+</tr>
+<tr>
+<td>Laser scan rotated</td>
+<td>Incorrect TF</td>
+<td>Verify LIDAR frame alignment</td>
+</tr>
+<tr>
+<td>Incomplete scan</td>
+<td>Sensor obstruction</td>
+<td>Remove physical obstructions</td>
+</tr>
+<tr>
+<td>No camera feed</td>
+<td>Camera not detected</td>
+<td>Check camera driver and permissions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="navigation-issues-nav2">Navigation Issues (Nav2)</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Possible Cause</th>
+<th>Recommended Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No path generated</td>
+<td>Localization not converged</td>
+<td>Set initial pose again</td>
+</tr>
+<tr>
+<td>Robot stuck</td>
+<td>Obstacle inflation too large</td>
+<td>Reduce inflation radius</td>
+</tr>
+<tr>
+<td>Collisions</td>
+<td>Incorrect footprint</td>
+<td>Update robot footprint</td>
+</tr>
+<tr>
+<td>Oscillations</td>
+<td>Controller tuning issue</td>
+<td>Tune Nav2 controller parameters</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="networking-remote-access-issues">Networking &amp; Remote Access Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Possible Cause</th>
+<th>Recommended Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cannot SSH</td>
+<td>SSH service disabled</td>
+<td>Enable and start SSH</td>
+</tr>
+<tr>
+<td>ROS topics not visible</td>
+<td>Different ROS_DOMAIN_ID</td>
+<td>Set same domain ID</td>
+</tr>
+<tr>
+<td>RViz lag</td>
+<td>Running RViz on robot</td>
+<td>Run RViz remotely</td>
+</tr>
+<tr>
+<td>High latency</td>
+<td>Weak WiFi signal</td>
+<td>Use Ethernet or improve WiFi</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="general-debugging-checklist">General Debugging Checklist</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Check power and battery level</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Verify robot bringup launched correctly</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Confirm /scan and /odom are publishing</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Check TF tree consistency</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Verify Nav2 nodes are active</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Test teleoperation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="frequently-asked-questions-faq">Frequently Asked Questions (FAQ)</h2>
+<h3 id="q-the-robot-is-powered-on-but-not-responding-what-should-i-check-first">Q: The robot is powered on but not responding. What should I check first?</h3>
+<p>A: Verify battery voltage, motor power, and ensure the ESP32 firmware is running and connected.</p>
+<hr />
+<h3 id="q-why-does-the-robot-drift-even-when-standing-still">Q: Why does the robot drift even when standing still?</h3>
+<p>A: This is usually caused by encoder noise or incorrect PID tuning. Check encoder filtering and reduce control gains.</p>
+<hr />
+<h3 id="q-do-i-need-to-remap-the-environment-every-time">Q: Do I need to remap the environment every time?</h3>
+<p>A: No. As long as the environment and sensor mounting remain unchanged, a saved map can be reused.</p>
+<hr />
+<h3 id="q-can-i-run-rviz2-on-my-laptop-instead-of-the-robot">Q: Can I run RViz2 on my laptop instead of the robot?</h3>
+<p>A: Yes. Running RViz2 remotely is recommended to reduce CPU load on the robot.</p>
+<hr />
+<h3 id="q-why-does-nav2-fail-to-generate-a-path">Q: Why does Nav2 fail to generate a path?</h3>
+<p>A: Common causes include poor localization, incorrect costmap configuration, or an invalid initial pose.</p>
+<hr />
+<h3 id="q-is-it-safe-to-run-navigation-without-teleoperation-testing">Q: Is it safe to run navigation without teleoperation testing?</h3>
+<p>A: No. Always verify basic teleoperation and sensor data before enabling autonomous navigation.</p>
+<hr />
+<h3 id="q-can-i-add-new-sensors-to-the-robot">Q: Can I add new sensors to the robot?</h3>
+<p>A: Yes. Titan Robot is designed to be modular and supports additional sensors via USB or GPIO.</p>
+<hr />
+<h3 id="q-how-do-i-stop-the-robot-immediately-in-case-of-an-issue">Q: How do I stop the robot immediately in case of an issue?</h3>
+<p>A: Use keyboard teleop to stop motion, power off the motors, or disconnect power if necessary.</p>
+<hr />
+<h2 id="when-to-seek-help">When to Seek Help</h2>
+<p>If an issue persists after troubleshooting:</p>
+<ul>
+<li>Check logs using rqt_console</li>
+<li>Verify configuration files</li>
+<li>Review recent changes</li>
+<li>Consult project documentation or community channels</li>
+</ul>
+<p>This concludes the core documentation for Titan Robot 🚀</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../networking/" class="btn btn-neutral float-left" title="Networking and Remote Access"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../networking/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
