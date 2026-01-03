@@ -8,6 +8,7 @@ nav:
   - Visualization: visualization.md
   - Mapping: mapping.md
   - Localization and Navigation: navigation.md
+  - Networking and Remote Access: networking.md
   - About: about.md
 theme: readthedocs
 docs_dir: docs
