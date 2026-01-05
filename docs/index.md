@@ -1,4 +1,11 @@
-# Introduction
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<h1>Introduction</h1>
+<a href="https://github.com/MRS111-OS/titan_robot" class=""  style="display: flex; gap: 10px; align-items: center;">
+
+<span>Github Link</span>
+          <img src="images/github.png" alt="" style="width: 20px; height: 20px;">
+ </a>
+</div>
 
 ![Robot Front](images/1.png)
 
