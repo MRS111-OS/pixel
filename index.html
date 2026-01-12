@@ -48,6 +48,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#key-capabilities">Key Capabilities</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#key-metrics">Key Metrics for Titan Robot</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#created-by">Created By</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a>
@@ -119,7 +121,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="introduction">Introduction</h1>
-<p><img alt="Titan Robot MRS" src="images/MRS_Titan.gif" /></p>
+<p style="text-align: center;"><img alt="Titan Robot MRS" src="images/MRS_Titan.gif" /></p>
 <p><a href="https://github.com/MRS111-OS/titan_robot">Github Link</a></p>
 <h2 id="overview">Overview</h2>
 <p><img alt="Robot Front" src="images/1.png" /></p>
@@ -148,6 +150,91 @@
 <li>Visualization and debugging using RViz2</li>
 <li>Custom firmware and software development</li>
 </ul>
+<hr />
+<h2 id="key-metrics">Key Metrics for Titan Robot</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2"><strong>Drive/Base</strong></td>
+<td>Drive type</td>
+<td>Differential drive mobile base</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Motors</strong> - Motor type: 2× DC gear motors</td>
+</tr>
+<tr>
+<td><strong>Odometry</strong></td>
+<td>Encoders</td>
+<td>Quadrature wheel encoders</td>
+</tr>
+<tr>
+<td rowspan="2"><strong>Compute</strong></td>
+<td>Main computer</td>
+<td>Raspberry Pi 4B</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>8 GB</td>
+</tr>
+<tr>
+<td><strong>OS</strong></td>
+<td>Operating system</td>
+<td>Ubuntu 22.04 LTS</td>
+</tr>
+<tr>
+<td rowspan="3"><strong>Control</strong></td>
+<td>Low-level controller</td>
+<td>ESP32 MCU</td>
+</tr>
+<tr>
+<td>Motor control</td>
+<td>PWM + PID velocity control</td>
+</tr>
+<tr>
+<td>Compute ↔ MCU interface</td>
+<td>Serial interface</td>
+</tr>
+<tr>
+<td rowspan="2"><strong>Sensors</strong></td>
+<td>LiDAR</td>
+<td>2D LiDAR, 360° scanning range</td>
+</tr>
+<tr>
+<td>Camera</td>
+<td>V1: No camera | V2: Raspberry Pi Camera | V3: Intel RealSense depth camera</td>
+</tr>
+<tr>
+<td rowspan="3"><strong>Power</strong></td>
+<td>Battery voltage</td>
+<td>11.1 V</td>
+</tr>
+<tr>
+<td>Battery capacity</td>
+<td>2500 mAh</td>
+</tr>
+<tr>
+<td>Battery chemistry</td>
+<td>NMC (Li-NiMnCoO2)</td>
+</tr>
+<tr>
+<td><strong>Software</strong></td>
+<td>Navigation stack</td>
+<td>ROS 2 Nav2</td>
+</tr>
+<tr>
+<td><strong>Interface</strong></td>
+<td>Visualization</td>
+<td>RViz2 supported</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="created-by">Created By</h2>
 <p><a href="https://momentumrobotics.in/">Momentum Robotics</a> is an Indian Robotics Startup.</p>
