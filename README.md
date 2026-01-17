@@ -53,10 +53,12 @@ Ctrl + click on the static link and view the site.
 
 ## Using Github pages
 
-Ensure that your mkdocs workspace is pushed to a github repo. Then in the terminal:
+Ensure that your mkdocs workspace is pushed to a github repo. **All pushes need to be made in main branch**. Then in the terminal:
 ```bash
 mkdocs gh-deploy
 ```
-This pushes the workspace as a github page. In your repo, go to Settings->Pages and start the Github Pages. Your Website is permanently running.
+This creates a new branch ```gh-pages``` in your current repo and pushes only the site directory as a github page. If ```gh-pages``` branch already exists, it pushes the changes into that branch and automatically runs a build action. 
+
+In your repo, go to Settings->Pages and choose ```Deploy from a branch``` and choose ```gh-pages``` and start the Github Pages. Your Website is permanently running.
 
 Note: .md files support html
