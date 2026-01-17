@@ -21,7 +21,11 @@ Each layer is designed to be independent and modular.
 
 ## Mechanical Design
 
-![Mechanical Design](images/mech_design.png)
+<p>
+  <img alt="Mechanical Design"
+       src="../images/mech_design.png"
+       style="max-width: 100%; height: auto; width: 500px;" />
+</p>
 
 
 ### Chassis
@@ -48,7 +52,11 @@ Each layer is designed to be independent and modular.
 
 ### Main Controller
 
-![Raspberry Pi](images/pi.jpeg)
+<p>
+  <img alt="Raspberry Pi"
+       src="../images/pi.jpeg"
+       style="max-width: 100%; height: auto; width: 500px;" />
+</p>
 
 
 - Raspberry Pi 4B (8GB RAM)
@@ -70,12 +78,18 @@ Each layer is designed to be independent and modular.
 
 ## Control Electronics
 
-### Motor Controller (ESP32)
+### Motor Controller (Custom Momentum Robotics Compute Board)
 
-![ESP32](images/esp32.jpeg)
+<p>
+  <img alt="Momentum LLC Board"
+       src="../images/Momentum_LLC_Board.jpeg"
+       style="max-width: 100%; height: auto; width: 500px;" />
+</p>
 
 
-- ESP32 MCU for real-time control
+- Custom Momentum Robotics Compute board based on ESP32 S3
+- Purpose-built for low-level motor control and real-time operations
+- ESP32 S3 MCU for real-time control
 - Responsibilities:
   - Motor PWM control
   - PID velocity control
@@ -90,7 +104,11 @@ Each layer is designed to be independent and modular.
 
 ### 2D LIDAR
 
-![Lidar](images/rplidar.jpeg)
+<p>
+  <img alt="Lidar"
+       src="../images/rplidar.jpeg"
+       style="max-width: 100%; height: auto; width: 500px;" />
+</p>
 
 
 - 360° scanning range
@@ -110,7 +128,11 @@ The camera configuration depends on the robot variant:
 
 #### Variant V2
 
-![Pi Cam](images/pi_cam.jpeg)
+<p>
+  <img alt="Pi Cam"
+       src="../images/pi_cam.jpeg"
+       style="max-width: 100%; height: auto; width: 500px;" />
+</p>
 
 
 - Raspberry Pi Camera
@@ -121,8 +143,11 @@ The camera configuration depends on the robot variant:
 
 #### Variant V3
 
-![Realsense Camera](images/realsense.jpeg)
-
+<p>
+  <img alt="Realsense Camera"
+       src="../images/realsense.jpeg"
+       style="max-width: 100%; height: auto; width: 500px;" />
+</p>
 
 - Intel RealSense depth camera
 - Provides:

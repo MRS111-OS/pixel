@@ -117,9 +117,13 @@
  </a>
 </div>
 
-<p><img alt="Robot Front" src="images/1.png" /></p>
+<p align="center">
+  <img src="images/MRS_Titan.gif" alt="Titan Robot MRS">
+</p>
+
 <p><a href="https://github.com/MRS111-OS/titan_robot">Github Link</a></p>
 <h2 id="overview">Overview</h2>
+<p><img alt="Robot Front" src="images/1.png" /></p>
 <p><strong>Titan Robot</strong> is a ROS 2–based mobile robot platform designed for learning, experimentation, and real-world robotics development. Built with cost efficiency and modularity in mind, Titan Robot enables students, researchers, and developers to explore modern robotic concepts such as autonomous navigation, mapping, localization, and robot software architecture using ROS 2.</p>
 <p>The platform combines reliable hardware with a flexible software stack, making it suitable for education, prototyping, and research applications. Titan Robot emphasizes hands-on learning by exposing users to both high-level autonomy and low-level motor control.</p>
 <hr />
@@ -146,8 +150,95 @@
 <li>Custom firmware and software development</li>
 </ul>
 <hr />
+<h2 id="key-metrics-for-titan-robot">Key Metrics for Titan Robot</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Drive / Base</strong></td>
+<td>Drive type</td>
+<td>Differential drive mobile base</td>
+</tr>
+<tr>
+<td><strong>Drive / Base</strong></td>
+<td>Motors</td>
+<td>2× DC gear motors</td>
+</tr>
+<tr>
+<td><strong>Odometry</strong></td>
+<td>Encoders</td>
+<td>Quadrature wheel encoders</td>
+</tr>
+<tr>
+<td><strong>Compute</strong></td>
+<td>Main computer</td>
+<td>Raspberry Pi 4B</td>
+</tr>
+<tr>
+<td><strong>Compute</strong></td>
+<td>RAM</td>
+<td>4 GB and 8 GB</td>
+</tr>
+<tr>
+<td><strong>OS</strong></td>
+<td>Operating system</td>
+<td>Ubuntu 22.04 LTS</td>
+</tr>
+<tr>
+<td><strong>Control</strong></td>
+<td>Low-level controller</td>
+<td>Custom Momentum Robotics Compute board ESP32 S3 based</td>
+</tr>
+<tr>
+<td><strong>Control</strong></td>
+<td>Motor control</td>
+<td>PWM + PID velocity control</td>
+</tr>
+<tr>
+<td><strong>Control</strong></td>
+<td>Compute ↔ MCU interface</td>
+<td>Serial interface</td>
+</tr>
+<tr>
+<td><strong>Sensors</strong></td>
+<td>LiDAR</td>
+<td>2D LiDAR, 360° scanning range</td>
+</tr>
+<tr>
+<td><strong>Sensors</strong></td>
+<td>Camera</td>
+<td>V1: No camera<br>V2: Raspberry Pi Camera<br>V3: Intel RealSense depth camera</td>
+</tr>
+<tr>
+<td><strong>Power</strong></td>
+<td>Battery voltage</td>
+<td>11.1 V</td>
+</tr>
+<tr>
+<td><strong>Power</strong></td>
+<td>Battery type</td>
+<td>FPF battery, 4400 mAh</td>
+</tr>
+<tr>
+<td><strong>Software</strong></td>
+<td>Navigation stack</td>
+<td>ROS 2 Nav2</td>
+</tr>
+<tr>
+<td><strong>Interface</strong></td>
+<td>Visualization</td>
+<td>RViz2 supported</td>
+</tr>
+</tbody>
+</table>
 <h2 id="created-by">Created By</h2>
-<p><a href="https://momentumrobotics.in/">Momentum Robotics</a> is an Indian Robotics Startup.</p>
+<p><a href="https://imomentumrobotics.in/">Momentum Robotics</a> is an Indian Robotics Startup.</p>
 <p><img alt="Momentum Logo" src="images/logo_black.png" /></p>
 <h2 id="next-steps">Next Steps</h2>
 <p>To begin working with Titan Robot, proceed to:</p>
@@ -205,5 +296,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-01-05 11:16:33.646097+00:00
+Build Date UTC : 2026-01-17 09:48:14.033611+00:00
 -->
