@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Simulation - Titan Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Simulation";
+        var mkdocs_page_input_path = "simulation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Titan Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../software/">Software Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bringup/">Robot Bringup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../visualization/">Visualization</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mapping/">Mapping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../navigation/">Localization and Navigation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Simulation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simulation-stack">Simulation Stack</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-ignition-gazebo-gazebo-fortress">Installing Ignition Gazebo (Gazebo Fortress)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-rosgazebo-integration">Installing ROS–Gazebo Integration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preparing-the-workspace">Preparing the Workspace</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#launching-the-simulation">Launching the Simulation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#verifying-the-simulation">Verifying the Simulation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mapping-in-simulation">Mapping in Simulation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#launching-slam">Launching SLAM</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#visualizing-the-map">Visualizing the Map</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#saving-the-map">Saving the Map</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#navigation-in-simulation">Navigation in Simulation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sending-navigation-goals">Sending Navigation Goals</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simulation-time">Simulation Time</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#titan-docker">Titan Docker</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-simulation-issues">Common Simulation Issues</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simulation-vs-real-robot">Simulation vs Real Robot</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../networking/">Networking and Remote Access</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../troubleshoot/">Troubleshooting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Titan Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Simulation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="simulation">Simulation</h1>
+<h2 id="overview">Overview</h2>
+<p>Simulation allows you to test Titan Robot’s software stack in a virtual environment before running it on real hardware. Titan Robot uses <strong>Ignition Gazebo (Gazebo Fortress)</strong> integrated with ROS 2 through <strong>ros_gz_sim</strong> to provide a realistic simulation of sensors, robot motion, mapping, and navigation.</p>
+<p>Simulation is strongly recommended for:
+- Testing navigation parameters
+- Debugging SLAM and localization
+- Developing new features safely
+- Learning ROS 2 workflows without hardware risk</p>
+<hr />
+<h2 id="simulation-stack">Simulation Stack</h2>
+<p>The simulation setup consists of:</p>
+<ul>
+<li>Ignition Gazebo (Gazebo Fortress)</li>
+<li>ros_gz_sim for ROS 2 ↔ Gazebo integration</li>
+<li>Simulated Titan Robot model</li>
+<li>Simulated sensors (LIDAR)</li>
+<li>RViz2 for visualization</li>
+</ul>
+<hr />
+<h2 id="installing-ignition-gazebo-gazebo-fortress">Installing Ignition Gazebo (Gazebo Fortress)</h2>
+<p>Install Ignition Gazebo Fortress:</p>
+<pre><code class="language-bash">sudo apt update  
+sudo apt install ignition-fortress
+</code></pre>
+<p>Verify installation:</p>
+<pre><code class="language-bash">ign gazebo --version
+</code></pre>
+<hr />
+<h2 id="installing-rosgazebo-integration">Installing ROS–Gazebo Integration</h2>
+<p>Install the ROS 2 Gazebo integration packages:</p>
+<pre><code class="language-bash">sudo apt install ros-humble-ros-gz-sim  
+sudo apt install ros-humble-ros-gz-bridge  
+sudo apt install ros-humble-ros-gz-image
+</code></pre>
+<p>These packages enable communication between ROS 2 and Ignition Gazebo.</p>
+<hr />
+<h2 id="preparing-the-workspace">Preparing the Workspace</h2>
+<p>Ensure your Titan Robot workspace is built and sourced:</p>
+<pre><code class="language-bash">cd ~/titan_ws  
+colcon build  
+source install/setup.bash
+</code></pre>
+<hr />
+<h2 id="launching-the-simulation">Launching the Simulation</h2>
+<p>Start the simulation using the Titan Robot simulation bringup:</p>
+<pre><code class="language-bash">ros2 launch titan_nav bringup.launch.py
+</code></pre>
+<p>This launch file performs the following actions:</p>
+<p><img alt="Robot Gazebo" src="../images/simulation/titan_sim_gazebo.png" /></p>
+<ul>
+<li>Starts Ignition Gazebo</li>
+<li>Loads the warehouse world</li>
+<li>Spawns the Titan Robot model</li>
+<li>Launches simulated LIDAR</li>
+<li>Bridges Gazebo sensor data to ROS 2</li>
+<li>Starts RViz2 with a preconfigured view</li>
+</ul>
+<hr />
+<h2 id="verifying-the-simulation">Verifying the Simulation</h2>
+<p><img alt="Robot Rviz" src="../images/simulation/titan_sim_rviz.png" /></p>
+<p>Once launched, verify the following:</p>
+<ul>
+<li>The robot appears in the Gazebo warehouse world</li>
+<li>RViz2 shows the robot model</li>
+<li>LIDAR scan data is visible in RViz2</li>
+<li>TF frames are correctly published</li>
+</ul>
+<p>At this stage, the robot is ready for mapping.</p>
+<hr />
+<h2 id="mapping-in-simulation">Mapping in Simulation</h2>
+<h3 id="launching-slam">Launching SLAM</h3>
+<p>Open a new terminal, source the workspace, and launch SLAM:</p>
+<pre><code class="language-bash">source ~/titan_ws/install/setup.bash  
+ros2 launch titan_nav slam.launch.py
+</code></pre>
+<p>This launch file runs <strong>SLAM Toolbox in online asynchronous mode</strong>, using simulated LIDAR data.</p>
+<hr />
+<h3 id="visualizing-the-map">Visualizing the Map</h3>
+<p><img alt="Robot Mapping" src="../images/simulation/titan_sim_map.png" /></p>
+<p>In RViz2:</p>
+<ul>
+<li>Set Fixed Frame to <code>map</code></li>
+<li>Add the Map display if not already visible</li>
+<li>Observe the map being generated as the robot moves</li>
+</ul>
+<p>You can use teleoperation to explore the environment and build the map.</p>
+<hr />
+<h2 id="saving-the-map">Saving the Map</h2>
+<p>Once mapping is complete:</p>
+<ol>
+<li>In RViz2, open the <strong>Slam Toolbox Plugin</strong></li>
+<li>Click <strong>Save Map</strong></li>
+<li>Choose a directory and map name</li>
+</ol>
+<p>This generates a <code>.yaml</code> and <code>.pgm</code> map file that can be reused for navigation.</p>
+<hr />
+<h2 id="navigation-in-simulation">Navigation in Simulation</h2>
+<p>After saving the map, stop the SLAM launch and start navigation.</p>
+<p>Run the following command in a new terminal:</p>
+<pre><code class="language-bash">ros2 launch titan_nav nav2.launch.py use_sim_time:=true map:=/absolute/path/to/your/map.yaml
+</code></pre>
+<p>This launch file starts:</p>
+<ul>
+<li>Map server</li>
+<li>Localization</li>
+<li>Navigation stack (Nav2)</li>
+<li>Costmaps and planners</li>
+</ul>
+<p>The <code>use_sim_time</code> argument ensures synchronization with simulation time.</p>
+<hr />
+<h2 id="sending-navigation-goals">Sending Navigation Goals</h2>
+<p><img alt="Robot Navigation" src="../images/simulation/titan_sim_nav.png" /></p>
+<p>In RViz2:</p>
+<ol>
+<li>Set Fixed Frame to <code>map</code> and give <strong>2D Pose Estimate</strong></li>
+<li>Use the <strong>2D Goal Pose</strong> tool</li>
+<li>Select a goal location in the map</li>
+</ol>
+<p>The robot will autonomously navigate to the goal within the simulated environment.</p>
+<hr />
+<h2 id="simulation-time">Simulation Time</h2>
+<p>Simulation runs on a simulated clock.</p>
+<p>Ensure that:
+- <code>use_sim_time</code> is set to true
+- Nodes are synchronized to Gazebo time</p>
+<p>This is critical for correct SLAM and navigation behavior.</p>
+<hr />
+<h2 id="titan-docker">Titan Docker</h2>
+<p>Run the following commands on the host system:</p>
+<pre><code class="language-bash">xhost +local:root
+
+sudo docker run -it \
+--net=host \
+--device=/dev/dri \
+-e DISPLAY=$DISPLAY \
+-e QT_X11_NO_MITSHM=1 \
+-v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+yashnair02/titan_docker:final
+</code></pre>
+<p>This command pulls the Docker image automatically if it is not already available, enables GUI forwarding for Gazebo and RViz2, and uses host networking for ROS 2 communication.</p>
+<p>Container Behaviour: When the container starts, it automatically opens a tmux session with <strong>four panes in a single terminal</strong>.</p>
+<ul>
+<li>Simulation bringup is launched automatically</li>
+<li>Nav2 is launched with simulation time enabled</li>
+<li>Ignition Gazebo and RViz2 start immediately</li>
+</ul>
+<p>At this stage, the user only needs to send a <strong>2D Goal Pose</strong> in RViz2 to observe autonomous navigation behavior. Users can stop running nodes in any tmux pane and manually launch SLAM, mapping, or navigation using custom maps if desired.</p>
+<p>For Tmux Navigation:
+- Switch panes: Ctrl + b, then arrow keys<br />
+- Detach session: Ctrl + b, then d<br />
+- Reattach: tmux attach  </p>
+<hr />
+<h2 id="common-simulation-issues">Common Simulation Issues</h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Possible Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Robot not moving</td>
+<td>Controllers not loaded</td>
+<td>Check bringup launch logs</td>
+</tr>
+<tr>
+<td>No LIDAR data</td>
+<td>Bridge not running</td>
+<td>Verify ros_gz bridges</td>
+</tr>
+<tr>
+<td>Navigation fails</td>
+<td>Map not loaded</td>
+<td>Check map file path</td>
+</tr>
+<tr>
+<td>Time-related errors</td>
+<td>use_sim_time false</td>
+<td>Enable simulation time</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="simulation-vs-real-robot">Simulation vs Real Robot</h2>
+<p>Key differences to keep in mind:</p>
+<ul>
+<li>Simulation has perfect sensor alignment</li>
+<li>No wheel slip unless modeled</li>
+<li>Odometry is ideal compared to real robot</li>
+<li>Navigation may appear smoother in simulation</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../navigation/" class="btn btn-neutral float-left" title="Localization and Navigation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../networking/" class="btn btn-neutral float-right" title="Networking and Remote Access">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../navigation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../networking/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
