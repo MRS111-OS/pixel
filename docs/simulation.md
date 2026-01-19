@@ -180,38 +180,6 @@ This is critical for correct SLAM and navigation behavior.
 
 ---
 
-## Titan Docker
-
-Run the following commands on the host system:
-```bash
-xhost +local:root
-
-sudo docker run -it \
---net=host \
---device=/dev/dri \
--e DISPLAY=$DISPLAY \
--e QT_X11_NO_MITSHM=1 \
--v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-yashnair02/titan_docker:final
-```
-This command pulls the Docker image automatically if it is not already available, enables GUI forwarding for Gazebo and RViz2, and uses host networking for ROS 2 communication.
-
-Container Behaviour: When the container starts, it automatically opens a tmux session with **four panes in a single terminal**.
-
-- Simulation bringup is launched automatically
-- Nav2 is launched with simulation time enabled
-- Ignition Gazebo and RViz2 start immediately
-
-At this stage, the user only needs to send a **2D Goal Pose** in RViz2 to observe autonomous navigation behavior. Users can stop running nodes in any tmux pane and manually launch SLAM, mapping, or navigation using custom maps if desired.
-
-For Tmux Navigation:
-- Switch panes: Ctrl + b, then arrow keys  
-- Detach session: Ctrl + b, then d  
-- Reattach: tmux attach  
-
-
----
-
 
 ## Common Simulation Issues
 

@@ -9,6 +9,7 @@ nav:
   - Mapping: mapping.md
   - Localization and Navigation: navigation.md
   - Simulation: simulation.md
+  - Titan Docker Simulation: docker.md
   - Networking and Remote Access: networking.md
   - Troubleshooting: troubleshoot.md
   - About: about.md

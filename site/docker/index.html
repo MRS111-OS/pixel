@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Titan Docker Simulation - Titan Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Titan Docker Simulation";
+        var mkdocs_page_input_path = "docker.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Titan Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../software/">Software Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bringup/">Robot Bringup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../visualization/">Visualization</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mapping/">Mapping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../navigation/">Localization and Navigation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../simulation/">Simulation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Titan Docker Simulation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-the-docker-image">Running the Docker Image</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-this-command-does">What This Command Does</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#container-startup-behavior">Container Startup Behavior</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#automatic-launch-sequence">Automatic Launch Sequence</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#custom-usage">Custom Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#navigating-tmux-panes">Navigating tmux Panes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#further-changes">Further Changes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-case-summary">Use Case Summary</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../networking/">Networking and Remote Access</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../troubleshoot/">Troubleshooting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Titan Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Titan Docker Simulation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="titan-simulation-docker">Titan Simulation (Docker)</h1>
+<h2 id="overview">Overview</h2>
+<p>The Titan Simulation Docker provides a ready-to-use environment for running Titan Robot simulation without installing ROS 2, Gazebo, or dependencies on the host system. It is intended for quick demonstrations, behavior validation, and first-time exploration of the Titan navigation stack.</p>
+<hr />
+<h2 id="running-the-docker-image">Running the Docker Image</h2>
+<p>Run the following commands on the host system:</p>
+<pre><code class="language-bash">xhost +local:root
+
+sudo docker run -it \
+--net=host \
+--device=/dev/dri \
+-e DISPLAY=$DISPLAY \
+-e QT_X11_NO_MITSHM=1 \
+-v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+yashnair02/titan_docker:final
+</code></pre>
+<h3 id="what-this-command-does">What This Command Does</h3>
+<ul>
+<li>Pulls the Docker image automatically if it does not already exist on the system</li>
+<li>Enables GUI forwarding so Ignition Gazebo and RViz2 can display on the host</li>
+<li>Uses host networking for seamless ROS 2 and Gazebo communication</li>
+<li>Provides GPU access for hardware-accelerated rendering</li>
+</ul>
+<hr />
+<h2 id="container-startup-behavior">Container Startup Behavior</h2>
+<p>When the container starts, a script automatically launches a <strong>tmux session</strong> with <strong>four panes in a single terminal window</strong>.</p>
+<p>The layout is:</p>
+<ul>
+<li>Top-left pane: Simulation bringup</li>
+<li>Bottom-left pane: Navigation stack</li>
+<li>Top-right pane: Idle (user commands)</li>
+<li>Bottom-right pane: Idle (user commands)</li>
+</ul>
+<hr />
+<h2 id="automatic-launch-sequence">Automatic Launch Sequence</h2>
+<p>Inside the container:</p>
+<ul>
+<li>The Titan simulation bringup is launched automatically</li>
+<li>Ignition Gazebo starts with the warehouse world</li>
+<li>The robot is spawned in simulation</li>
+<li>Nav2 is launched with simulation time enabled</li>
+</ul>
+<p>At this point, the user only needs to:</p>
+<ul>
+<li>Open RViz2</li>
+<li>Set an initial pose if required</li>
+<li>Send a <strong>2D Goal Pose</strong></li>
+</ul>
+<p>The robot will immediately begin autonomous navigation.<br />
+This setup is intended to quickly demonstrate robot behavior without manual setup.</p>
+<hr />
+<h2 id="custom-usage">Custom Usage</h2>
+<p>If users want to experiment further, they can:</p>
+<ul>
+<li>Stop running nodes in any tmux pane</li>
+<li>Launch SLAM for mapping</li>
+<li>Load custom maps</li>
+<li>Tune navigation parameters</li>
+</ul>
+<p>This Docker environment supports the full simulation workflow described in the <a href="https://mrs111-os.github.io/titan_docs/simulation/">Simulation documentation</a>.</p>
+<hr />
+<h2 id="navigating-tmux-panes">Navigating tmux Panes</h2>
+<p>To move between tmux panes:</p>
+<ul>
+<li>Press Ctrl + b, then use arrow keys to switch panes</li>
+</ul>
+<p>Additional useful commands:</p>
+<ul>
+<li>Ctrl + b, then d → Detach from tmux</li>
+<li>tmux attach → Reattach to the session</li>
+<li>Ctrl + d → Close a pane</li>
+</ul>
+<hr />
+<h2 id="further-changes">Further Changes</h2>
+<p>To make further changes in the docker image:
+1. Run the image and make changes in the container.
+2. List the cuurent containers</p>
+<pre><code class="language-bash">sudo docker ps
+</code></pre>
+<ol>
+<li>Note the container ID</li>
+<li>Then <code>docker commit container_id username/repository_name:tag_name</code> . This creates a new image called username/repository_name:tag_name</li>
+<li>If you want to push the image to your personal docker hub, <code>docker push username/repository_name:tag_name</code> </li>
+</ol>
+<h2 id="use-case-summary">Use Case Summary</h2>
+<p>This Docker setup is ideal for:</p>
+<ul>
+<li>Quick demonstrations</li>
+<li>Behavior visualization</li>
+<li>Testing navigation without hardware</li>
+<li>Sharing a reproducible simulation environment</li>
+</ul>
+<p>No local ROS 2 or Gazebo installation is required.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../simulation/" class="btn btn-neutral float-left" title="Simulation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../networking/" class="btn btn-neutral float-right" title="Networking and Remote Access">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../simulation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../networking/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
