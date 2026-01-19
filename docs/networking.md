@@ -44,7 +44,7 @@ Look for a valid IP address assigned to the wireless interface.
 
 ---
 
-## Finding the Robot’s IP Address
+### Finding the Robot’s IP Address
 
 On the robot, run:
 ```bash
@@ -90,8 +90,6 @@ Once connected, you can run ROS 2 commands as if you were physically on the robo
 
 ---
 
-## Remote ROS 2 Development
-
 ### Sourcing ROS 2
 
 After logging in via SSH, ensure ROS 2 is sourced:
@@ -101,7 +99,7 @@ source ~/titan_ws/install/setup.bash
 ```
 ---
 
-## Remote RViz2 Usage
+### Remote RViz2 Usage
 
 RViz2 can be run either:
 - On the robot

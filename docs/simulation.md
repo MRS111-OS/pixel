@@ -24,7 +24,9 @@ The simulation setup consists of:
 
 ---
 
-## Installing Ignition Gazebo (Gazebo Fortress)
+## Setup
+
+### Installing Ignition Gazebo (Gazebo Fortress)
 
 Install Ignition Gazebo Fortress:
 ```bash
@@ -37,7 +39,7 @@ ign gazebo --version
 ```
 ---
 
-## Installing ROS–Gazebo Integration
+### Installing ROS–Gazebo Integration
 
 Install the ROS 2 Gazebo integration packages:
 ```bash
@@ -49,7 +51,7 @@ These packages enable communication between ROS 2 and Ignition Gazebo.
 
 ---
 
-## Preparing the Workspace
+### Preparing the Workspace
 
 Ensure your Titan Robot workspace is built and sourced:
 ```bash
@@ -78,7 +80,7 @@ This launch file performs the following actions:
 
 ---
 
-## Verifying the Simulation
+### Verifying the Simulation
 
 ![Robot Rviz](images/simulation/titan_sim_rviz.png)
 
@@ -121,7 +123,7 @@ You can use teleoperation to explore the environment and build the map.
 
 ---
 
-## Saving the Map
+### Saving the Map
 
 Once mapping is complete:
 
@@ -152,7 +154,7 @@ The `use_sim_time` argument ensures synchronization with simulation time.
 
 ---
 
-## Sending Navigation Goals
+### Sending Navigation Goals
 
 ![Robot Navigation](images/simulation/titan_sim_nav.png)
 

@@ -78,15 +78,21 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#simulation-stack">Simulation Stack</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installing-ignition-gazebo-gazebo-fortress">Installing Ignition Gazebo (Gazebo Fortress)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-ignition-gazebo-gazebo-fortress">Installing Ignition Gazebo (Gazebo Fortress)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installing-rosgazebo-integration">Installing ROS–Gazebo Integration</a>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-rosgazebo-integration">Installing ROS–Gazebo Integration</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#preparing-the-workspace">Preparing the Workspace</a>
+    <li class="toctree-l3"><a class="reference internal" href="#preparing-the-workspace">Preparing the Workspace</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#launching-the-simulation">Launching the Simulation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#verifying-the-simulation">Verifying the Simulation</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#verifying-the-simulation">Verifying the Simulation</a>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#mapping-in-simulation">Mapping in Simulation</a>
         <ul>
@@ -94,13 +100,15 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#visualizing-the-map">Visualizing the Map</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#saving-the-map">Saving the Map</a>
+    </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#saving-the-map">Saving the Map</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#navigation-in-simulation">Navigation in Simulation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sending-navigation-goals">Sending Navigation Goals</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#sending-navigation-goals">Sending Navigation Goals</a>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#simulation-time">Simulation Time</a>
     </li>
@@ -167,7 +175,8 @@
 <li>RViz2 for visualization</li>
 </ul>
 <hr />
-<h2 id="installing-ignition-gazebo-gazebo-fortress">Installing Ignition Gazebo (Gazebo Fortress)</h2>
+<h2 id="setup">Setup</h2>
+<h3 id="installing-ignition-gazebo-gazebo-fortress">Installing Ignition Gazebo (Gazebo Fortress)</h3>
 <p>Install Ignition Gazebo Fortress:</p>
 <pre><code class="language-bash">sudo apt update  
 sudo apt install ignition-fortress
@@ -176,7 +185,7 @@ sudo apt install ignition-fortress
 <pre><code class="language-bash">ign gazebo --version
 </code></pre>
 <hr />
-<h2 id="installing-rosgazebo-integration">Installing ROS–Gazebo Integration</h2>
+<h3 id="installing-rosgazebo-integration">Installing ROS–Gazebo Integration</h3>
 <p>Install the ROS 2 Gazebo integration packages:</p>
 <pre><code class="language-bash">sudo apt install ros-humble-ros-gz-sim  
 sudo apt install ros-humble-ros-gz-bridge  
@@ -184,7 +193,7 @@ sudo apt install ros-humble-ros-gz-image
 </code></pre>
 <p>These packages enable communication between ROS 2 and Ignition Gazebo.</p>
 <hr />
-<h2 id="preparing-the-workspace">Preparing the Workspace</h2>
+<h3 id="preparing-the-workspace">Preparing the Workspace</h3>
 <p>Ensure your Titan Robot workspace is built and sourced:</p>
 <pre><code class="language-bash">cd ~/titan_ws  
 colcon build  
@@ -206,7 +215,7 @@ source install/setup.bash
 <li>Starts RViz2 with a preconfigured view</li>
 </ul>
 <hr />
-<h2 id="verifying-the-simulation">Verifying the Simulation</h2>
+<h3 id="verifying-the-simulation">Verifying the Simulation</h3>
 <p><img alt="Robot Rviz" src="../images/simulation/titan_sim_rviz.png" /></p>
 <p>Once launched, verify the following:</p>
 <ul>
@@ -235,7 +244,7 @@ ros2 launch titan_nav slam.launch.py
 </ul>
 <p>You can use teleoperation to explore the environment and build the map.</p>
 <hr />
-<h2 id="saving-the-map">Saving the Map</h2>
+<h3 id="saving-the-map">Saving the Map</h3>
 <p>Once mapping is complete:</p>
 <ol>
 <li>In RViz2, open the <strong>Slam Toolbox Plugin</strong></li>
@@ -258,7 +267,7 @@ ros2 launch titan_nav slam.launch.py
 </ul>
 <p>The <code>use_sim_time</code> argument ensures synchronization with simulation time.</p>
 <hr />
-<h2 id="sending-navigation-goals">Sending Navigation Goals</h2>
+<h3 id="sending-navigation-goals">Sending Navigation Goals</h3>
 <p><img alt="Robot Navigation" src="../images/simulation/titan_sim_nav.png" /></p>
 <p>In RViz2:</p>
 <ol>

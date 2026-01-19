@@ -66,7 +66,7 @@ This launch file starts:
 - Behavior tree navigator
 
 
-## Initial Pose Estimation
+### Initial Pose Estimation
 
 ![goal](images/goal.png)
 
@@ -84,7 +84,7 @@ The localization system will converge to the correct pose within a few seconds.
 
 
 
-## Verifying Localization
+### Verifying Localization
 
 Localization is working correctly if:
 
@@ -168,23 +168,23 @@ Path smoothness captures how much the direction of motion changes along the plan
 
 The replan ID is an index assigned to each new global path generated during navigation. As the robot moves and the planner replans, this index increments sequentially. Tracking metrics against the replan ID allows observation of how path quality evolves as the robot approaches the goal and the remaining path shortens.
 
-## Experimental Results
+### Experimental Results
 
-### Path Length Comparison
+#### Path Length Comparison
 
 The path length comparison shows a consistent reduction in path length as the robot progresses toward the goal. SmacPlanner 2D generally produces the shortest paths due to its any-angle planning capability, allowing direct connections when line-of-sight exists. Smac Planner 2D follows closely, while NavFn typically generates slightly longer paths because of its grid-aligned expansion.
 
 
 ![Path Length](images/simulation/planners_PL.png)
 
-### Path Smoothness Comparison
+#### Path Smoothness Comparison
 
 The smoothness comparison reveals that Smac Planner 2D produces the straightest and most consistent paths overall. NavFn follows with moderate smoothness, while Theta* exhibits higher variation due to occasional aggressive shortcuts and line-of-sight connections that introduce sharper angular transitions. This behavior becomes more visible during replanning phases as the robot nears the goal.
 
 ![Path Smoothness](images/simulation/Planners_Smoothness.png)
 
 
-## Summary
+### Summary
 
 Theta* produces the shortest paths but shows higher variability in smoothness.
 
@@ -213,7 +213,7 @@ Controller behavior directly affects motion smoothness, responsiveness, stabilit
 
 ### Controllers Evaluated
 
-### Regulated Pure Pursuit (RPP)
+#### Regulated Pure Pursuit (RPP)
 
 Regulated Pure Pursuit is a geometric path-tracking controller based on the **pure pursuit algorithm**.  
 It selects a lookahead point on the global path and computes curvature commands that steer the robot toward that point.
@@ -224,7 +224,7 @@ This results in smooth, predictable motion with minimal oscillations, making RPP
 ![RPP](images/simulation/RPP.gif)
 
 
-### Dynamic Window Approach (DWB)
+#### Dynamic Window Approach (DWB)
 
 DWB is a **trajectory-sampling controller** that evaluates multiple velocity commands in the robot’s dynamic window.  
 Each candidate trajectory is forward-simulated and scored using a set of critics such as path alignment, goal distance, obstacle cost, and rotation penalties.
@@ -237,7 +237,7 @@ While highly flexible and reactive, DWB can exhibit oscillatory behavior if not 
 
 ### Controller Evaluation Metrics
 
-### Time to Goal
+#### Time to Goal
 
 Time to goal represents the total duration taken by the robot to reach the navigation goal after a navigation request is issued.  
 It is measured from the moment the controller begins execution until the goal is reported as reached.
@@ -245,7 +245,7 @@ It is measured from the moment the controller begins execution until the goal is
 This metric reflects overall controller efficiency, including responsiveness, stability, and interaction with the planner.
 
 
-### Instantaneous Speed
+#### Instantaneous Speed
 
 Instantaneous speed captures the robot’s linear velocity at each control timestep.  
 It is obtained directly from velocity commands (`cmd_vel`) published by the controller, allowing fine-grained observation of motion behavior.
@@ -253,7 +253,7 @@ It is obtained directly from velocity commands (`cmd_vel`) published by the cont
 Tracking instantaneous speed over time reveals how aggressively or conservatively a controller drives the robot and how it responds to path curvature and goal proximity.
 
 
-### Acceleration
+#### Acceleration
 
 Acceleration is derived from the change in instantaneous speed over time.  
 It provides insight into motion smoothness and dynamic stability.
@@ -263,13 +263,13 @@ High acceleration spikes indicate abrupt speed changes, which may lead to wheel 
 
 ### Experimental Results
 
-### Time to Goal Comparison
+#### Time to Goal Comparison
 
 The time-to-goal results show that Regulated Pure Pursuit consistently reaches the goal faster in this setup due to its direct path-following behavior and minimal hesitation.  
 DWB, while robust, tends to take longer due to frequent re-evaluation of trajectories and conservative velocity choices near obstacles.
 
 
-### Speed Profile Comparison
+#### Speed Profile Comparison
 
 The speed profile comparison highlights a clear behavioral difference between the controllers.  
 RPP maintains a relatively smooth and stable velocity profile, gradually slowing near turns and the goal.  
@@ -335,8 +335,8 @@ During navigation, the robot:
 - Stops when the goal is reached
 
 ---
-
-## Common Localization Issues
+## Issues
+### Common Localization Issues
 
 | Issue | Possible Cause | Solution |
 |-----|---------------|---------|
@@ -345,7 +345,7 @@ During navigation, the robot:
 | Laser mismatch | Incorrect TF frames | Verify LIDAR transforms |
 
 
-## Common Navigation Issues
+### Common Navigation Issues
 
 | Issue | Possible Cause | Solution |
 |-----|---------------|---------|
@@ -356,7 +356,7 @@ During navigation, the robot:
 
 
 
-## Safety Guidelines
+### Safety Guidelines
 
 - Test navigation in open environments
 - Limit maximum speed during initial testing

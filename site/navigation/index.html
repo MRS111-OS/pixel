@@ -83,10 +83,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#launching-localization-and-navigation">Launching Localization and Navigation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#initial-pose-estimation">Initial Pose Estimation</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#initial-pose-estimation">Initial Pose Estimation</a>
+    <li class="toctree-l3"><a class="reference internal" href="#verifying-localization">Verifying Localization</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#verifying-localization">Verifying Localization</a>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#navigation-overview">Navigation Overview</a>
     </li>
@@ -112,17 +114,17 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#replan-id">Replan ID</a>
     </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#experimental-results">Experimental Results</a>
+    <li class="toctree-l3"><a class="reference internal" href="#experimental-results">Experimental Results</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#path-length-comparison">Path Length Comparison</a>
+    <li class="toctree-l4"><a class="reference internal" href="#path-length-comparison">Path Length Comparison</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#path-smoothness-comparison">Path Smoothness Comparison</a>
+    <li class="toctree-l4"><a class="reference internal" href="#path-smoothness-comparison">Path Smoothness Comparison</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a>
+    <li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#controllers">Controllers</a>
         <ul>
@@ -131,24 +133,30 @@
     <li class="toctree-l3"><a class="reference internal" href="#local-controller-overview">Local Controller Overview</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#controllers-evaluated">Controllers Evaluated</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#regulated-pure-pursuit-rpp">Regulated Pure Pursuit (RPP)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#regulated-pure-pursuit-rpp">Regulated Pure Pursuit (RPP)</a>
+    <li class="toctree-l4"><a class="reference internal" href="#dynamic-window-approach-dwb">Dynamic Window Approach (DWB)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#dynamic-window-approach-dwb">Dynamic Window Approach (DWB)</a>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#controller-evaluation-metrics">Controller Evaluation Metrics</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#time-to-goal">Time to Goal</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#time-to-goal">Time to Goal</a>
+    <li class="toctree-l4"><a class="reference internal" href="#instantaneous-speed">Instantaneous Speed</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#instantaneous-speed">Instantaneous Speed</a>
+    <li class="toctree-l4"><a class="reference internal" href="#acceleration">Acceleration</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#acceleration">Acceleration</a>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#experimental-results_1">Experimental Results</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#time-to-goal-comparison">Time to Goal Comparison</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#time-to-goal-comparison">Time to Goal Comparison</a>
+    <li class="toctree-l4"><a class="reference internal" href="#speed-profile-comparison">Speed Profile Comparison</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#speed-profile-comparison">Speed Profile Comparison</a>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#summary_1">Summary</a>
     </li>
@@ -166,11 +174,15 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#navigation-behavior">Navigation Behavior</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#common-localization-issues">Common Localization Issues</a>
+    <li class="toctree-l2"><a class="reference internal" href="#issues">Issues</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#common-localization-issues">Common Localization Issues</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#common-navigation-issues">Common Navigation Issues</a>
+    <li class="toctree-l3"><a class="reference internal" href="#common-navigation-issues">Common Navigation Issues</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#safety-guidelines">Safety Guidelines</a>
+    <li class="toctree-l3"><a class="reference internal" href="#safety-guidelines">Safety Guidelines</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#performance-tuning-tips">Performance Tuning Tips</a>
     </li>
@@ -280,7 +292,7 @@ Once a map is provided, the robot continuously estimates its position using sens
 - Local controller
 - Costmaps
 - Behavior tree navigator</p>
-<h2 id="initial-pose-estimation">Initial Pose Estimation</h2>
+<h3 id="initial-pose-estimation">Initial Pose Estimation</h3>
 <p><img alt="goal" src="../images/goal.png" /></p>
 <p>After Nav2 starts, the robot must be given an initial pose.</p>
 <p>In RViz2:</p>
@@ -291,7 +303,7 @@ Once a map is provided, the robot continuously estimates its position using sens
 <li>Set the robot’s orientation</li>
 </ol>
 <p>The localization system will converge to the correct pose within a few seconds.</p>
-<h2 id="verifying-localization">Verifying Localization</h2>
+<h3 id="verifying-localization">Verifying Localization</h3>
 <p>Localization is working correctly if:</p>
 <ul>
 <li>The robot model aligns with the map</li>
@@ -339,14 +351,14 @@ Instead of being constrained to grid directions, the planner directly connects n
 <p>Path smoothness captures how much the direction of motion changes along the planned path. It is calculated by summing the absolute angular differences between consecutive path segments, expressed in radians. A smoother path exhibits gradual heading changes, which reduces steering effort and makes the path easier for local controllers to follow. Higher smoothness values indicate frequent or sharp directional changes, often arising from grid constraints or obstacle avoidance behavior.</p>
 <h3 id="replan-id">Replan ID</h3>
 <p>The replan ID is an index assigned to each new global path generated during navigation. As the robot moves and the planner replans, this index increments sequentially. Tracking metrics against the replan ID allows observation of how path quality evolves as the robot approaches the goal and the remaining path shortens.</p>
-<h2 id="experimental-results">Experimental Results</h2>
-<h3 id="path-length-comparison">Path Length Comparison</h3>
+<h3 id="experimental-results">Experimental Results</h3>
+<h4 id="path-length-comparison">Path Length Comparison</h4>
 <p>The path length comparison shows a consistent reduction in path length as the robot progresses toward the goal. SmacPlanner 2D generally produces the shortest paths due to its any-angle planning capability, allowing direct connections when line-of-sight exists. Smac Planner 2D follows closely, while NavFn typically generates slightly longer paths because of its grid-aligned expansion.</p>
 <p><img alt="Path Length" src="../images/simulation/planners_PL.png" /></p>
-<h3 id="path-smoothness-comparison">Path Smoothness Comparison</h3>
+<h4 id="path-smoothness-comparison">Path Smoothness Comparison</h4>
 <p>The smoothness comparison reveals that Smac Planner 2D produces the straightest and most consistent paths overall. NavFn follows with moderate smoothness, while Theta* exhibits higher variation due to occasional aggressive shortcuts and line-of-sight connections that introduce sharper angular transitions. This behavior becomes more visible during replanning phases as the robot nears the goal.</p>
 <p><img alt="Path Smoothness" src="../images/simulation/Planners_Smoothness.png" /></p>
-<h2 id="summary">Summary</h2>
+<h3 id="summary">Summary</h3>
 <p>Theta* produces the shortest paths but shows higher variability in smoothness.</p>
 <p>Smac Planner 2D generates the smoothest and most stable paths across replans.</p>
 <p>NavFn provides predictable behavior but remains constrained by grid-based motion.</p>
@@ -360,36 +372,36 @@ The controllers are compared using time-based and motion-based metrics to unders
 While the global planner decides <em>where</em> the robot should go, the controller decides <em>how</em> the robot should move at each instant.</p>
 <p>Controller behavior directly affects motion smoothness, responsiveness, stability, and time to reach the goal.</p>
 <h3 id="controllers-evaluated">Controllers Evaluated</h3>
-<h3 id="regulated-pure-pursuit-rpp">Regulated Pure Pursuit (RPP)</h3>
+<h4 id="regulated-pure-pursuit-rpp">Regulated Pure Pursuit (RPP)</h4>
 <p>Regulated Pure Pursuit is a geometric path-tracking controller based on the <strong>pure pursuit algorithm</strong>.<br />
 It selects a lookahead point on the global path and computes curvature commands that steer the robot toward that point.</p>
 <p>Regulation terms are added to limit velocity near obstacles, sharp turns, or goal proximity.<br />
 This results in smooth, predictable motion with minimal oscillations, making RPP well suited for structured environments and clean global paths.</p>
 <p><img alt="RPP" src="../images/simulation/RPP.gif" /></p>
-<h3 id="dynamic-window-approach-dwb">Dynamic Window Approach (DWB)</h3>
+<h4 id="dynamic-window-approach-dwb">Dynamic Window Approach (DWB)</h4>
 <p>DWB is a <strong>trajectory-sampling controller</strong> that evaluates multiple velocity commands in the robot’s dynamic window.<br />
 Each candidate trajectory is forward-simulated and scored using a set of critics such as path alignment, goal distance, obstacle cost, and rotation penalties.</p>
 <p>The command with the lowest cost is selected at each control cycle.<br />
 While highly flexible and reactive, DWB can exhibit oscillatory behavior if not carefully tuned, especially in open or cluttered spaces.</p>
 <p><img alt="DWB" src="../images/simulation/DWB.gif" /></p>
 <h3 id="controller-evaluation-metrics">Controller Evaluation Metrics</h3>
-<h3 id="time-to-goal">Time to Goal</h3>
+<h4 id="time-to-goal">Time to Goal</h4>
 <p>Time to goal represents the total duration taken by the robot to reach the navigation goal after a navigation request is issued.<br />
 It is measured from the moment the controller begins execution until the goal is reported as reached.</p>
 <p>This metric reflects overall controller efficiency, including responsiveness, stability, and interaction with the planner.</p>
-<h3 id="instantaneous-speed">Instantaneous Speed</h3>
+<h4 id="instantaneous-speed">Instantaneous Speed</h4>
 <p>Instantaneous speed captures the robot’s linear velocity at each control timestep.<br />
 It is obtained directly from velocity commands (<code>cmd_vel</code>) published by the controller, allowing fine-grained observation of motion behavior.</p>
 <p>Tracking instantaneous speed over time reveals how aggressively or conservatively a controller drives the robot and how it responds to path curvature and goal proximity.</p>
-<h3 id="acceleration">Acceleration</h3>
+<h4 id="acceleration">Acceleration</h4>
 <p>Acceleration is derived from the change in instantaneous speed over time.<br />
 It provides insight into motion smoothness and dynamic stability.</p>
 <p>High acceleration spikes indicate abrupt speed changes, which may lead to wheel slip, poor tracking, or uncomfortable motion in real robots.</p>
 <h3 id="experimental-results_1">Experimental Results</h3>
-<h3 id="time-to-goal-comparison">Time to Goal Comparison</h3>
+<h4 id="time-to-goal-comparison">Time to Goal Comparison</h4>
 <p>The time-to-goal results show that Regulated Pure Pursuit consistently reaches the goal faster in this setup due to its direct path-following behavior and minimal hesitation.<br />
 DWB, while robust, tends to take longer due to frequent re-evaluation of trajectories and conservative velocity choices near obstacles.</p>
-<h3 id="speed-profile-comparison">Speed Profile Comparison</h3>
+<h4 id="speed-profile-comparison">Speed Profile Comparison</h4>
 <p>The speed profile comparison highlights a clear behavioral difference between the controllers.<br />
 RPP maintains a relatively smooth and stable velocity profile, gradually slowing near turns and the goal.<br />
 DWB shows noticeable fluctuations in speed caused by trajectory switching and critic competition.</p>
@@ -435,7 +447,8 @@ DWB shows noticeable fluctuations in speed caused by trajectory switching and cr
 <li>Stops when the goal is reached</li>
 </ul>
 <hr />
-<h2 id="common-localization-issues">Common Localization Issues</h2>
+<h2 id="issues">Issues</h2>
+<h3 id="common-localization-issues">Common Localization Issues</h3>
 <table>
 <thead>
 <tr>
@@ -462,7 +475,7 @@ DWB shows noticeable fluctuations in speed caused by trajectory switching and cr
 </tr>
 </tbody>
 </table>
-<h2 id="common-navigation-issues">Common Navigation Issues</h2>
+<h3 id="common-navigation-issues">Common Navigation Issues</h3>
 <table>
 <thead>
 <tr>
@@ -494,7 +507,7 @@ DWB shows noticeable fluctuations in speed caused by trajectory switching and cr
 </tr>
 </tbody>
 </table>
-<h2 id="safety-guidelines">Safety Guidelines</h2>
+<h3 id="safety-guidelines">Safety Guidelines</h3>
 <ul>
 <li>Test navigation in open environments</li>
 <li>Limit maximum speed during initial testing</li>

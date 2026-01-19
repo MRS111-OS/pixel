@@ -86,10 +86,8 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#using-network-manager-recommended">Using Network Manager (Recommended)</a>
     </li>
-        </ul>
+    <li class="toctree-l3"><a class="reference internal" href="#finding-the-robots-ip-address">Finding the Robot’s IP Address</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#finding-the-robots-ip-address">Finding the Robot’s IP Address</a>
-        <ul>
     <li class="toctree-l3"><a class="reference internal" href="#finding-the-robot-from-another-device">Finding the Robot from Another Device</a>
     </li>
         </ul>
@@ -100,16 +98,10 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#connecting-via-ssh">Connecting via SSH</a>
     </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#remote-ros-2-development">Remote ROS 2 Development</a>
-        <ul>
     <li class="toctree-l3"><a class="reference internal" href="#sourcing-ros-2">Sourcing ROS 2</a>
     </li>
-        </ul>
+    <li class="toctree-l3"><a class="reference internal" href="#remote-rviz2-usage">Remote RViz2 Usage</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#remote-rviz2-usage">Remote RViz2 Usage</a>
-        <ul>
     <li class="toctree-l3"><a class="reference internal" href="#running-rviz2-on-a-remote-pc">Running RViz2 on a Remote PC</a>
     </li>
         </ul>
@@ -196,7 +188,7 @@ This section explains how to connect the robot to a network, access it remotely,
 <p><img alt="ip" src="../images/ip.png" /></p>
 <p>Look for a valid IP address assigned to the wireless interface.</p>
 <hr />
-<h2 id="finding-the-robots-ip-address">Finding the Robot’s IP Address</h2>
+<h3 id="finding-the-robots-ip-address">Finding the Robot’s IP Address</h3>
 <p>On the robot, run:</p>
 <pre><code class="language-bash">hostname -I
 </code></pre>
@@ -225,14 +217,13 @@ sudo systemctl start ssh
 </code></pre>
 <p>Once connected, you can run ROS 2 commands as if you were physically on the robot.</p>
 <hr />
-<h2 id="remote-ros-2-development">Remote ROS 2 Development</h2>
 <h3 id="sourcing-ros-2">Sourcing ROS 2</h3>
 <p>After logging in via SSH, ensure ROS 2 is sourced:</p>
 <pre><code class="language-bash">source /opt/ros/humble/setup.bash  
 source ~/titan_ws/install/setup.bash
 </code></pre>
 <hr />
-<h2 id="remote-rviz2-usage">Remote RViz2 Usage</h2>
+<h3 id="remote-rviz2-usage">Remote RViz2 Usage</h3>
 <p>RViz2 can be run either:
 - On the robot
 - On a remote PC connected over the network</p>
