@@ -59,6 +59,17 @@ cd ~/titan_ws
 colcon build  
 source install/setup.bash
 ```
+
+
+NOTE: If running simulation in a virtual machine:
+```bash
+export LIBGL_ALWAYS_SOFTWARE=1
+export IGN_RENDER_ENGINE=ogre
+export GZ_SIM_RENDER_ENGINE=ogre
+```
+
+ This is used to make CPU use ogre renderer to launch gazebo.
+
 ---
 
 ## Launching the Simulation

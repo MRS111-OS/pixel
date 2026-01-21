@@ -201,6 +201,12 @@ sudo apt install ros-humble-ros-gz-image
 colcon build  
 source install/setup.bash
 </code></pre>
+<p>NOTE: If running simulation in a virtual machine:</p>
+<pre><code class="language-bash">export LIBGL_ALWAYS_SOFTWARE=1
+export IGN_RENDER_ENGINE=ogre
+export GZ_SIM_RENDER_ENGINE=ogre
+</code></pre>
+<p>This is used to make CPU use ogre renderer to launch gazebo.</p>
 <hr />
 <h2 id="launching-the-simulation">Launching the Simulation</h2>
 <p>Start the simulation using the Titan Robot simulation bringup:</p>
