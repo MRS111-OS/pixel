@@ -2,9 +2,10 @@ site_name: Pixel Documentation
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - Robot Startup: startup.md
   - Hardware Architecture: hardware.md
   - Software Architecture: software.md
-  - Robot Bringup: bringup.md
+  - Robot Setup & Installation : bringup.md
   - Visualization: visualization.md
   - Mapping: mapping.md
   - Localization and Navigation: navigation.md
@@ -12,6 +13,7 @@ nav:
   - Pixel Docker Simulation: docker.md
   - Networking and Remote Access: networking.md
   - Troubleshooting: troubleshoot.md
+  - Additional Information: additional.md
   - About: about.md
 theme: readthedocs
 docs_dir: docs

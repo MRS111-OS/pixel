@@ -1,4 +1,4 @@
-# Robot Bringup 🤖
+# Setup & Installation 🤖
 
 ## Overview
 
