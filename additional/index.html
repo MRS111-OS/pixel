@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Additional Information - Pixel Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Additional Information";
+        var mkdocs_page_input_path = "additional.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Pixel Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting Started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../software/">Software Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../startup/">After Powering On</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bringup/">Robot Bringup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../visualization/">Visualization</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mapping/">Mapping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../navigation/">Localization and Navigation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../simulation/">Simulation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../docker/">Pixel Docker Simulation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../networking/">Networking and Remote Access</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../troubleshoot/">Troubleshooting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Additional Information</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-tmux">What is tmux?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-developers-use-tmux">Why Developers Use tmux</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-persistent-sessions">1. Persistent Sessions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-multiple-panes-and-windows">2. Multiple Panes and Windows</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-ideal-for-remote-development">3. Ideal for Remote Development</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-lightweight-and-fast">4. Lightweight and Fast</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-keyboard-driven-workflow">5. Keyboard-Driven Workflow</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-tmux-concepts">Basic tmux Concepts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#starting-and-managing-tmux">Starting and Managing tmux</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#start-tmux">Start tmux</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#start-a-named-session">Start a named session</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#list-running-sessions">List running sessions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#attach-to-an-existing-session">Attach to an existing session</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#detach-from-a-session-without-closing-it">Detach from a session (without closing it)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-tmux-commands">Basic tmux Commands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#session-commands">Session Commands</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#window-commands">Window Commands</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pane-commands">Pane Commands</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-developer-workflow">Example Developer Workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#service-that-automates-tmux-once-robot-is-powered-on">Service that automates Tmux once Robot is Powered On</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#high-level-idea">High-Level Idea</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#systemd-service-role">systemd Service Role</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#robot_bringupsh-script-role">robot_bringup.sh Script Role</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-tmux-is-used-here">Why tmux is Used Here</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#typical-debug-workflow">Typical Debug Workflow</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Pixel Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Additional Information</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="introduction-to-tmux">Introduction to tmux</h1>
+<h2 id="what-is-tmux">What is tmux?</h2>
+<p><strong>tmux</strong> (terminal multiplexer) is a command-line tool that allows you to run multiple terminal sessions inside a single terminal window. It enables you to create, manage, and switch between multiple shells, all while keeping them running in the background.</p>
+<p>With tmux, your terminal sessions stay alive even if:
+- Your SSH connection drops
+- You close the terminal accidentally
+- Your system goes to sleep</p>
+<p>This makes tmux especially powerful for developers, system administrators, and anyone working on remote machines.</p>
+<hr />
+<h2 id="why-developers-use-tmux">Why Developers Use tmux</h2>
+<p>Developers rely on tmux because it significantly improves productivity and workflow.</p>
+<h3 id="1-persistent-sessions">1. Persistent Sessions</h3>
+<p>You can detach from a tmux session and reattach later without losing running programs (editors, servers, scripts).</p>
+<h3 id="2-multiple-panes-and-windows">2. Multiple Panes and Windows</h3>
+<p>tmux lets you split a terminal into multiple panes and windows, allowing you to:
+- Run code in one pane
+- Monitor logs in another
+- Edit files in a third</p>
+<p>All at the same time.</p>
+<h3 id="3-ideal-for-remote-development">3. Ideal for Remote Development</h3>
+<p>tmux is widely used on servers via SSH. Even if your network disconnects, your work continues safely on the server.</p>
+<h3 id="4-lightweight-and-fast">4. Lightweight and Fast</h3>
+<p>tmux runs entirely in the terminal and consumes very little system resources compared to GUI-based tools.</p>
+<h3 id="5-keyboard-driven-workflow">5. Keyboard-Driven Workflow</h3>
+<p>Once learned, tmux allows extremely fast navigation and control using keyboard shortcuts.</p>
+<hr />
+<h2 id="basic-tmux-concepts">Basic tmux Concepts</h2>
+<p>Before commands, it helps to understand tmux terminology:</p>
+<ul>
+<li><strong>Session</strong> → A collection of windows (entire workspace)</li>
+<li><strong>Window</strong> → Like a tab in a browser</li>
+<li><strong>Pane</strong> → A split section inside a window</li>
+</ul>
+<hr />
+<h2 id="starting-and-managing-tmux">Starting and Managing tmux</h2>
+<h3 id="start-tmux">Start tmux</h3>
+<pre><code class="language-bash">tmux
+</code></pre>
+<h3 id="start-a-named-session">Start a named session</h3>
+<pre><code class="language-bash">tmux new -s mysession
+</code></pre>
+<h3 id="list-running-sessions">List running sessions</h3>
+<pre><code class="language-bash">tmux ls
+</code></pre>
+<h3 id="attach-to-an-existing-session">Attach to an existing session</h3>
+<pre><code class="language-bash">tmux attach -t mysession
+</code></pre>
+<h3 id="detach-from-a-session-without-closing-it">Detach from a session (without closing it)</h3>
+<p>Press:</p>
+<pre><code>Ctrl + b, then d
+</code></pre>
+<hr />
+<h2 id="basic-tmux-commands">Basic tmux Commands</h2>
+<blockquote>
+<p><strong>Note:</strong> Most tmux shortcuts start with the <strong>prefix key</strong><br />
+Default prefix: <code>Ctrl + b</code></p>
+</blockquote>
+<h3 id="session-commands">Session Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detach session</td>
+<td><code>Ctrl + b d</code></td>
+</tr>
+<tr>
+<td>Rename session</td>
+<td><code>Ctrl + b $</code></td>
+</tr>
+<tr>
+<td>Kill session</td>
+<td><code>tmux kill-session</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="window-commands">Window Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create new window</td>
+<td><code>Ctrl + b c</code></td>
+</tr>
+<tr>
+<td>Next window</td>
+<td><code>Ctrl + b n</code></td>
+</tr>
+<tr>
+<td>Previous window</td>
+<td><code>Ctrl + b p</code></td>
+</tr>
+<tr>
+<td>List windows</td>
+<td><code>Ctrl + b w</code></td>
+</tr>
+<tr>
+<td>Rename window</td>
+<td><code>Ctrl + b ,</code></td>
+</tr>
+<tr>
+<td>Close window</td>
+<td><code>Ctrl + b &amp;</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="pane-commands">Pane Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Split vertically</td>
+<td><code>Ctrl + b %</code></td>
+</tr>
+<tr>
+<td>Split horizontally</td>
+<td><code>Ctrl + b "</code></td>
+</tr>
+<tr>
+<td>Move between panes</td>
+<td><code>Ctrl + b</code> + arrow key</td>
+</tr>
+<tr>
+<td>Resize pane</td>
+<td><code>Ctrl + b</code> + hold arrow key</td>
+</tr>
+<tr>
+<td>Close pane</td>
+<td><code>Ctrl + b x</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="example-developer-workflow">Example Developer Workflow</h2>
+<p>A common tmux setup:
+- <strong>Window 1:</strong> Code editor (vim / nano)
+- <strong>Window 2:</strong> Build or run commands
+- <strong>Window 3:</strong> Logs or debugging output</p>
+<p>All managed inside one terminal session.</p>
+<hr />
+<h2 id="service-that-automates-tmux-once-robot-is-powered-on">Service that automates Tmux once Robot is Powered On</h2>
+<p>In many robotics systems, tmux is used to <strong>automatically start and manage robot software at boot time</strong>. This ensures that core processes come up reliably without manual intervention after powering on the robot.</p>
+<p>The setup used in this project relies on <strong>systemd services + tmux sessions</strong>.</p>
+<h3 id="high-level-idea">High-Level Idea</h3>
+<ol>
+<li>The robot boots up (Linux starts)</li>
+<li>A <code>systemd</code> service is triggered automatically</li>
+<li>The service launches a shell script</li>
+<li>The shell script starts a tmux session</li>
+<li>Inside tmux, robot bringup commands are executed</li>
+</ol>
+<p>This allows developers to later SSH into the robot and <strong>attach to the same tmux session</strong> to observe logs or debug issues.</p>
+<hr />
+<h3 id="systemd-service-role">systemd Service Role</h3>
+<p>A systemd service is responsible for starting tmux at boot.</p>
+<p>Typical responsibilities:
+- Run after networking is ready
+- Execute as a specific user (not root)
+- Restart automatically if it fails</p>
+<p>Conceptually, the service runs a command similar to:</p>
+<pre><code class="language-bash">tmux new-session -d -s robot
+</code></pre>
+<p>This creates a <strong>detached tmux session</strong> named <code>robot</code> during boot.</p>
+<hr />
+<h3 id="robot_bringupsh-script-role">robot_bringup.sh Script Role</h3>
+<p>The bringup script is executed <em>inside</em> the tmux session. Its job is to:</p>
+<ul>
+<li>Source ROS 2 environment</li>
+<li>Source workspace overlays</li>
+<li>Launch core robot nodes</li>
+<li>Keep processes running in a controlled environment</li>
+</ul>
+<p>A simplified flow looks like:</p>
+<pre><code class="language-bash">#!/bin/bash
+
+source /opt/ros/humble/setup.bash
+source ~/pixel_ws/install/setup.bash
+
+ros2 launch pixel_bringup robot.launch.py
+</code></pre>
+<p>This script becomes the <strong>entry point</strong> for robot startup.</p>
+<hr />
+<h3 id="why-tmux-is-used-here">Why tmux is Used Here</h3>
+<p>Using tmux for robot bringup provides several advantages:</p>
+<ul>
+<li><strong>Persistence</strong>: Processes keep running even if SSH disconnects</li>
+<li><strong>Debugging</strong>: Developers can attach later using:
+  <code>bash
+  tmux attach -t robot</code></li>
+<li><strong>Visibility</strong>: Logs are immediately visible without <code>journalctl</code></li>
+<li><strong>Manual recovery</strong>: Panes or windows can be restarted independently</li>
+</ul>
+<hr />
+<h3 id="typical-debug-workflow">Typical Debug Workflow</h3>
+<ol>
+<li>Power on the robot</li>
+<li>systemd starts the tmux session automatically</li>
+<li>Robot nodes launch inside tmux</li>
+<li>Developer SSHs into the robot</li>
+<li>Attach to the running session:
+   <code>bash
+   tmux attach -t robot</code></li>
+<li>Inspect logs, restart nodes, or split panes as needed</li>
+</ol>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../about/" class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
