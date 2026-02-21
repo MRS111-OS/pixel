@@ -1,11 +1,12 @@
 site_name: Pixel Documentation
+
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Robot Startup: startup.md
   - Hardware Architecture: hardware.md
   - Software Architecture: software.md
-  - Robot Setup & Installation : bringup.md
+  - Robot Setup & Installation: bringup.md
   - Visualization: visualization.md
   - Mapping: mapping.md
   - Localization and Navigation: navigation.md
@@ -15,6 +16,15 @@ nav:
   - Troubleshooting: troubleshoot.md
   - Additional Information: additional.md
   - About: about.md
-theme: readthedocs
+
+theme:
+  name: readthedocs
+
 docs_dir: docs
 site_dir: site
+
+extra_javascript:
+  - js/release.js
+
+extra:
+  release_version: "v1.0.0"
