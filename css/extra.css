@@ -1,26 +1,26 @@
-/* Make sidebar a flex column */
+/* Make sidebar a flex column (DO NOT remove) */
 .wy-nav-side {
   display: flex;
   flex-direction: column;
 }
 
-/* Let scroll area take available space */
+/* Let sidebar menu scroll naturally */
 .wy-side-scroll {
   flex: 1;
   overflow-y: auto;
 }
 
-/* Release tag sits at bottom naturally */
+/* Release tag fixed at true bottom, above Next/Previous */
 .sidebar-release {
-  background-color: #222020;
-  color: #e1e1e1;
+  background-color: #343131;   /* EXACT match with Next button bar */
+  color: #ffffff;
 
   font-size: 15px;
-  padding: 15px 0;
+  padding: 12px 0;
   text-align: center;
-
 }
 
+/* Version highlight */
 .sidebar-release span {
   color: #00c853;
   font-weight: 600;
