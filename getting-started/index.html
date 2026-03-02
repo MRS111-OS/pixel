@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -146,6 +147,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
+  
                 <h1 id="getting-started">Getting Started</h1>
 <h2 id="overview">Overview</h2>
 <p>This section guides you through the basic requirements and preparation needed to work with <strong>Pixel Robot</strong>. By the end of this section, you will understand the system requirements, robot variants, and how to choose the correct configuration for your use case.</p>
@@ -246,6 +248,21 @@ Advanced perception and 3D-aware navigation</p>
 <p>Choose the variant that best matches your learning goals or project requirements.</p>
 <p>You’re now ready to begin working with Pixel Robot 🚀</p>
               
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const sidebar = document.querySelector(".wy-nav-side");
+
+      if (sidebar && !document.querySelector(".sidebar-release")) {
+        const div = document.createElement("div");
+        div.className = "sidebar-release";
+        div.innerHTML = "Release: <span>v1.0.0</span>";
+        sidebar.appendChild(div);
+      }
+    });
+  </script>
+
+
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
@@ -284,7 +301,6 @@ Advanced perception and 3D-aware navigation</p>
     <script>var base_url = "..";</script>
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
-      <script src="../js/release.js"></script>
       <script src="../search/main.js"></script>
     <script>
         jQuery(function () {

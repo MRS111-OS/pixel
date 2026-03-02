@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -124,6 +125,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
+  
                 <div style="display: flex; justify-content: space-between; align-items: center;">
 <h1>Introduction</h1>
 <a href="https://github.com/MRS111-OS/titan_robot" class=""  style="display: flex; gap: 10px; align-items: center;">
@@ -265,6 +267,21 @@
 </ul>
 <p>Let’s get started 🚀</p>
               
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const sidebar = document.querySelector(".wy-nav-side");
+
+      if (sidebar && !document.querySelector(".sidebar-release")) {
+        const div = document.createElement("div");
+        div.className = "sidebar-release";
+        div.innerHTML = "Release: <span>v1.0.0</span>";
+        sidebar.appendChild(div);
+      }
+    });
+  </script>
+
+
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
@@ -300,7 +317,6 @@
     <script>var base_url = ".";</script>
     <script src="js/theme_extra.js"></script>
     <script src="js/theme.js"></script>
-      <script src="js/release.js"></script>
       <script src="search/main.js"></script>
     <script>
         jQuery(function () {
@@ -313,5 +329,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-02-21 10:56:11.458390+00:00
+Build Date UTC : 2026-03-02 10:57:47.887898+00:00
 -->
