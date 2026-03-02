@@ -1,26 +1,24 @@
-/* Keep sidebar fixed (default behavior) */
+/* Make sidebar a flex column */
 .wy-nav-side {
-  position: fixed;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Add space so content doesn't overlap badge */
+/* Let scroll area take available space */
 .wy-side-scroll {
-  padding-bottom: 70px;
+  flex: 1;
+  overflow-y: auto;
 }
 
-/* Match RTD bottom navigation bar exactly */
+/* Release tag sits at bottom naturally */
 .sidebar-release {
-  position: fixed;
-  bottom: 40px;      /* sits exactly above prev/next */
-  left: 0;
-  width: 300px;      /* default RTD sidebar width */
-
-  background-color: #222020;  /* exact match */
+  background-color: #222020;
   color: #e1e1e1;
 
-  font-size: 14px;   /* slightly bigger */
-  padding: 10px 0;   /* match nav bar padding */
+  font-size: 15px;
+  padding: 15px 0;
   text-align: center;
+
 }
 
 .sidebar-release span {
