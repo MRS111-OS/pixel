@@ -2,7 +2,7 @@
 
 ## Overview
 
-This section guides you through the basic requirements and preparation needed to work with **Titan Robot**. By the end of this section, you will understand the system requirements, robot variants, and how to choose the correct configuration for your use case.
+This section guides you through the basic requirements and preparation needed to work with **Pixel Robot**. By the end of this section, you will understand the system requirements, robot variants, and how to choose the correct configuration for your use case.
 
 ---
 
@@ -11,7 +11,7 @@ This section guides you through the basic requirements and preparation needed to
 ![Ubuntu](images/ubuntu.jpeg)
 
 
-Titan Robot is designed to run natively on **Ubuntu 22.04 LTS** with **ROS 2 Humble Hawksbill**.
+Pixel Robot is designed to run natively on **Ubuntu 22.04 LTS** with **ROS 2 Humble Hawksbill**.
 
 ### Supported Operating System
 
@@ -27,7 +27,7 @@ Titan Robot is designed to run natively on **Ubuntu 22.04 LTS** with **ROS 2 Hum
 
 ## Supported Robot Variants
 
-Titan Robot is available in three hardware variants. Each variant builds on the previous one, adding new sensing and perception capabilities.
+Pixel Robot is available in three hardware variants. Each variant builds on the previous one, adding new sensing and perception capabilities.
 
 ### [V1](https://github.com/MRS111-OS/titan_robot) – LIDAR-Based Navigation
 
@@ -97,4 +97,4 @@ Advanced perception and 3D-aware navigation
 Choose the variant that best matches your learning goals or project requirements.
 
 
-You’re now ready to begin working with Titan Robot 🚀
+You’re now ready to begin working with Pixel Robot 🚀

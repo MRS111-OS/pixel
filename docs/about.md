@@ -1,11 +1,11 @@
-# About Titan Robot
+# About Pixel Robot
 
 ## Overview
 
 ![Robot Front](images/front1.png)
 
 
-Titan Robot is a ROS 2–based mobile robot platform designed to provide hands-on experience with modern robotics concepts.  
+Pixel Robot is a ROS 2–based mobile robot platform designed to provide hands-on experience with modern robotics concepts.  
 It combines real hardware, real sensors, and real software workflows to help users understand how autonomous robots are built, programmed, and deployed.
 
 The platform emphasizes:
@@ -14,13 +14,13 @@ The platform emphasizes:
 - Modular hardware and software design
 - Real-world robotics challenges
 
-Titan Robot is suitable for education, research, and independent exploration of mobile robotics.
+Pixel Robot is suitable for education, research, and independent exploration of mobile robotics.
 
 ---
 
 ## Educational Philosophy
 
-Titan Robot is designed to bridge the gap between theory and practice.  
+Pixel Robot is designed to bridge the gap between theory and practice.  
 Users are encouraged to experiment, modify, break, and rebuild systems to gain a deeper understanding of robotics.
 
 The documentation follows a progressive learning approach:
@@ -32,7 +32,7 @@ The documentation follows a progressive learning approach:
 
 ## Learning Outcomes
 
-By working with Titan Robot, users can learn:
+By working with Pixel Robot, users can learn:
 
 - ROS 2 fundamentals and architecture
 - Differential-drive kinematics
@@ -56,7 +56,7 @@ By working with Titan Robot, users can learn:
 - [Gazebo User Guide](https://classic.gazebosim.org/)
 - [Slam Toolbox Docs](https://wiki.ros.org/slam_toolbox)
 
-These resources provide deeper insights into the tools and frameworks used by Titan Robot.
+These resources provide deeper insights into the tools and frameworks used by Pixel Robot.
 
 ---
 
@@ -142,7 +142,7 @@ Mini projects encourage creativity and deeper exploration.
 
 ## Intended Use Cases
 
-Titan Robot can be used for:
+Pixel Robot can be used for:
 
 - Robotics coursework and labs
 - Research prototyping
@@ -154,7 +154,7 @@ Titan Robot can be used for:
 
 ## Contributions and Growth
 
-Titan Robot is designed to evolve through continuous improvement.  
+Pixel Robot is designed to evolve through continuous improvement.  
 Users are encouraged to:
 - Experiment with new features
 - Improve documentation
@@ -166,7 +166,7 @@ Users are encouraged to:
 ## Final Notes
 
 Robotics is best learned by doing.  
-Titan Robot provides a practical platform to explore real-world robotics challenges while building strong foundational skills.
+Pixel Robot provides a practical platform to explore real-world robotics challenges while building strong foundational skills.
 
 This documentation serves as a guide—but true learning happens through experimentation.
 

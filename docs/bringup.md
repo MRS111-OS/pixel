@@ -1,8 +1,8 @@
-# Robot Bringup 🤖
+# Setup & Installation 🤖
 
 ## Overview
 
-This section explains how to build, launch, and verify the complete software stack of **Titan Robot**.  
+This section explains how to build, launch, and verify the complete software stack of **Pixel Robot**.  
 Robot bringup refers to starting all essential components required for the robot to operate correctly, including sensors, motor control, state publishing, and visualization.
 
 ---
@@ -46,7 +46,7 @@ mkdir -p ~/titan_ws
 cd ~/titan_ws
 ```
 
-Clone the Titan Robot repository:
+Clone the Pixel Robot repository:
 ```bash
 git clone https://github.com/MRS111-OS/titan_robot.git
 mv titan_robot/ src
@@ -77,7 +77,7 @@ source install/setup.bash
 
 ## Bringup Launch Description
 
-Titan Robot uses a single bringup launch file that initializes all core components.
+Pixel Robot uses a single bringup launch file that initializes all core components.
 
 The bringup launch typically starts:
 

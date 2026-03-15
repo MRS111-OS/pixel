@@ -1,0 +1,78 @@
+# =========================
+# MkDocs build output
+# =========================
+site/
+site/**
+*.html
+
+# =========================
+# MkDocs cache
+# =========================
+.mkdocs_cache/
+.cache/
+
+# =========================
+# Python cache / virtualenv
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+env/
+ENV/
+docs/mkdocs-venv/
+mkdocs-venv/
+
+# =========================
+# Pip / packaging
+# =========================
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+
+# =========================
+# Node / frontend (if used)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Editor / IDE files
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# =========================
+# OS generated files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
+*.tmp
+
+# =========================
+# MkDocs plugins (optional)
+# =========================
+.material_cache/
+
+# =========================
+# Backup files
+# =========================
+*.bak
+*.orig

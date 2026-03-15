@@ -3,7 +3,7 @@
 ## Overview
 
 Visualization and debugging tools are essential for understanding robot behavior, validating sensor data, and diagnosing issues during development.  
-This section introduces the primary tools used with **Titan Robot** to visualize data and debug the ROS 2 system.
+This section introduces the primary tools used with **Pixel Robot** to visualize data and debug the ROS 2 system.
 
 The main tools covered are:
 

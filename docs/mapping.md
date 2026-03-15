@@ -2,10 +2,10 @@
 
 ## Overview
 
-Mapping and SLAM (Simultaneous Localization and Mapping) enable Titan Robot to understand and navigate unknown environments.  
+Mapping and SLAM (Simultaneous Localization and Mapping) enable Pixel Robot to understand and navigate unknown environments.  
 This section explains how to create maps using **SLAM Toolbox**, how mapping works internally, and best practices for generating high-quality maps.
 
-Titan Robot performs **2D LIDAR-based SLAM** using wheel odometry and laser scan data.
+Pixel Robot performs **2D LIDAR-based SLAM** using wheel odometry and laser scan data.
 
 ---
 
@@ -17,7 +17,7 @@ SLAM allows a robot to:
 - Build a map of an unknown environment
 - Estimate its own position within that map at the same time
 
-Titan Robot uses:
+Pixel Robot uses:
 - **Laser scans** from the 2D LIDAR
 - **Odometry** from wheel encoders
 
@@ -37,7 +37,7 @@ These inputs are fused by SLAM Toolbox to continuously update the map.
 
 ## SLAM Toolbox Overview
 
-SLAM Toolbox is the primary SLAM solution used on Titan Robot.
+SLAM Toolbox is the primary SLAM solution used on Pixel Robot.
 
 It supports:
 - Online asynchronous mapping
@@ -180,4 +180,4 @@ You should create a new map if:
 - Wheel parameters are updated
 - Odometry calibration is modified
 
-You have now successfully created a map using Titan Robot 🚀
+You have now successfully created a map using Pixel Robot 🚀

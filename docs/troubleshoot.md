@@ -2,7 +2,7 @@
 
 ## Overview
 
-This section provides guidance for diagnosing and resolving common issues encountered while using Titan Robot.  
+This section provides guidance for diagnosing and resolving common issues encountered while using Pixel Robot.  
 It is intended as a quick reference during development, testing, and deployment.
 
 The **Troubleshooting** section focuses on symptom-based diagnosis, while the **FAQ** addresses common conceptual and usage questions.
@@ -123,7 +123,7 @@ A: No. Always verify basic teleoperation and sensor data before enabling autonom
 ---
 
 ### Q: Can I add new sensors to the robot?
-A: Yes. Titan Robot is designed to be modular and supports additional sensors via USB or GPIO.
+A: Yes. Pixel Robot is designed to be modular and supports additional sensors via USB or GPIO.
 
 ---
 
@@ -142,4 +142,4 @@ If an issue persists after troubleshooting:
 - Consult project documentation or community channels
 
 
-This concludes the core documentation for Titan Robot 🚀
+This concludes the core documentation for Pixel Robot 🚀

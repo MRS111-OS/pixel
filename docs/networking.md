@@ -2,10 +2,10 @@
 
 ## Overview
 
-Networking and remote access allow you to control, monitor, and debug Titan Robot without directly connecting a keyboard and monitor.  
+Networking and remote access allow you to control, monitor, and debug Pixel Robot without directly connecting a keyboard and monitor.  
 This section explains how to connect the robot to a network, access it remotely, and configure ROS 2 communication across machines.
 
-Titan Robot supports:
+Pixel Robot supports:
 - WiFi and Ethernet networking
 - SSH-based remote access
 - Remote RViz visualization
@@ -44,7 +44,7 @@ Look for a valid IP address assigned to the wireless interface.
 
 ---
 
-## Finding the Robot’s IP Address
+### Finding the Robot’s IP Address
 
 On the robot, run:
 ```bash
@@ -90,8 +90,6 @@ Once connected, you can run ROS 2 commands as if you were physically on the robo
 
 ---
 
-## Remote ROS 2 Development
-
 ### Sourcing ROS 2
 
 After logging in via SSH, ensure ROS 2 is sourced:
@@ -101,7 +99,7 @@ source ~/titan_ws/install/setup.bash
 ```
 ---
 
-## Remote RViz2 Usage
+### Remote RViz2 Usage
 
 RViz2 can be run either:
 - On the robot
@@ -198,4 +196,4 @@ For development and testing:
 | High latency | Weak WiFi signal | Move closer or use Ethernet |
 | RViz lag | Running on robot | Run RViz on remote PC |
 
-You can now fully operate and debug Titan Robot remotely 🚀
+You can now fully operate and debug Pixel Robot remotely 🚀

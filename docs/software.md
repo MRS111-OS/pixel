@@ -2,9 +2,9 @@
 
 ## Overview
 
-This section describes the complete software architecture of **Titan Robot**, including the ROS 2 system running on the main computer and the firmware running on the microcontroller. The software is designed using a layered approach that cleanly separates high-level autonomy from low-level real-time control.
+This section describes the complete software architecture of **Pixel Robot**, including the ROS 2 system running on the main computer and the firmware running on the microcontroller. The software is designed using a layered approach that cleanly separates high-level autonomy from low-level real-time control.
 
-Titan Robot uses **ROS 2 Humble** for all high-level robot functionality and an **ESP32 microcontroller** programmed using the **Arduino IDE** for motor control and odometry computation.
+Pixel Robot uses **ROS 2 Humble** for all high-level robot functionality and an **ESP32 microcontroller** programmed using the **Arduino IDE** for motor control and odometry computation.
 
 ---
 
@@ -157,4 +157,4 @@ This odometry is then used by:
 - Time stamps are applied on the ROS 2 side
 - Sensor fusion compensates for accumulated odometry error
 
-You now have a complete understanding of Titan Robot’s software architecture 🚀
+You now have a complete understanding of Pixel Robot’s software architecture 🚀
