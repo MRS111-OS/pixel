@@ -1,0 +1,23 @@
+/*
+ * Show company logo above the left sidebar home link.
+ * Image path resolves from site/css/custom.css to site/images/logo_black.png.
+ */
+.wy-side-nav-search::before {
+    content: "";
+    display: block;
+    width: 160px;
+    height: 70px;
+    margin: 4px auto 10px;
+    background: url("../images/logo_black.png") center center / contain no-repeat;
+}
+
+.wy-side-nav-search > a.icon.icon-home {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .wy-side-nav-search::before {
+        width: 130px;
+        height: 56px;
+    }
+}

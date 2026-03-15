@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../css/extra.css" rel="stylesheet" />
+        <link href="../css/custom.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -169,7 +169,6 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-  
                 <h1 id="software-architecture">Software Architecture</h1>
 <h2 id="overview">Overview</h2>
 <p>This section describes the complete software architecture of <strong>Pixel Robot</strong>, including the ROS 2 system running on the main computer and the firmware running on the microcontroller. The software is designed using a layered approach that cleanly separates high-level autonomy from low-level real-time control.</p>
@@ -179,7 +178,7 @@
 <p>The software stack is divided into two main layers:</p>
 <ul>
 <li><strong>High-Level ROS 2 Layer (Raspberry Pi)</strong></li>
-<li><strong>Low-Level Firmware Layer (ESP32)</strong></li>
+<li><strong>Low-Level Firmware Layer (MRS LLC Board)</strong></li>
 </ul>
 <p>These layers communicate through a serial interface.</p>
 <hr />
@@ -266,6 +265,7 @@
 <hr />
 <h2 id="low-level-firmware-layer-esp32">Low-Level Firmware Layer (ESP32)</h2>
 <p><img alt="ESP Flow" src="../images/esp_flow.png" /></p>
+<p><img alt="Drive Controller" src="../images/drive_controller.png" /></p>
 <h3 id="firmware-overview">Firmware Overview</h3>
 <p>The ESP32 runs custom firmware developed and flashed using the <strong>Arduino IDE</strong>.<br />
 Its primary responsibility is real-time motor control and odometry estimation.</p>
@@ -334,21 +334,6 @@ Its primary responsibility is real-time motor control and odometry estimation.</
 </ul>
 <p>You now have a complete understanding of Pixel Robot’s software architecture 🚀</p>
               
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const sidebar = document.querySelector(".wy-nav-side");
-
-    if (sidebar && !document.querySelector(".sidebar-release")) {
-        const div = document.createElement("div");
-        div.className = "sidebar-release";
-        div.innerHTML = "Release: <span>v1.0.0</span>";
-        sidebar.appendChild(div);
-    }
-    });
-</script>
-
-
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
@@ -387,6 +372,7 @@ Its primary responsibility is real-time motor control and odometry estimation.</
     <script>var base_url = "..";</script>
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
+      <script src="../js/release.js"></script>
       <script src="../search/main.js"></script>
     <script>
         jQuery(function () {

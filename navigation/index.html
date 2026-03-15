@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../css/extra.css" rel="stylesheet" />
+        <link href="../css/custom.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -241,7 +241,6 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-  
                 <h1 id="localization-navigation">Localization &amp; Navigation</h1>
 <h2 id="overview">Overview</h2>
 <p>Localization and navigation allow Pixel Robot to estimate its position within a known map and autonomously move to target locations.<br />
@@ -536,21 +535,6 @@ DWB shows noticeable fluctuations in speed caused by trajectory switching and cr
 </ul>
 <p>Your robot is now fully capable of localization and autonomous navigation using Nav2 🚀</p>
               
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const sidebar = document.querySelector(".wy-nav-side");
-
-    if (sidebar && !document.querySelector(".sidebar-release")) {
-        const div = document.createElement("div");
-        div.className = "sidebar-release";
-        div.innerHTML = "Release: <span>v1.0.0</span>";
-        sidebar.appendChild(div);
-    }
-    });
-</script>
-
-
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
@@ -589,6 +573,7 @@ DWB shows noticeable fluctuations in speed caused by trajectory switching and cr
     <script>var base_url = "..";</script>
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
+      <script src="../js/release.js"></script>
       <script src="../search/main.js"></script>
     <script>
         jQuery(function () {
