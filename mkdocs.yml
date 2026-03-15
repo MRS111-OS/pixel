@@ -23,6 +23,9 @@ theme:
 docs_dir: docs
 site_dir: site
 
+extra_css:
+  - css/custom.css
+
 extra_javascript:
   - js/release.js
 

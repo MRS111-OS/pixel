@@ -27,6 +27,12 @@ Each layer is designed to be independent and modular.
        style="max-width: 100%; height: auto; width: 500px;" />
 </p>
 
+<p>
+  <img alt="Component Placement"
+       src="../images/components_placing.png"
+       style="max-width: 100%; height: auto; width: 500px;" />
+</p>
+
 
 ### Chassis
 
@@ -82,14 +88,13 @@ Each layer is designed to be independent and modular.
 
 <p>
   <img alt="Momentum LLC Board"
-       src="../images/Momentum_LLC_Board.jpeg"
+       src="../images/mrs_llc_v2.png"
        style="max-width: 100%; height: auto; width: 500px;" />
 </p>
 
-
 - Custom Momentum Robotics Compute board based on ESP32 S3
 - Purpose-built for low-level motor control and real-time operations
-- ESP32 S3 MCU for real-time control
+- MCU for real-time control
 - Responsibilities:
   - Motor PWM control
   - PID velocity control

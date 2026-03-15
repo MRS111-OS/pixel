@@ -13,7 +13,7 @@ Pixel Robot uses **ROS 2 Humble** for all high-level robot functionality and an 
 The software stack is divided into two main layers:
 
 - **High-Level ROS 2 Layer (Raspberry Pi)**
-- **Low-Level Firmware Layer (ESP32)**
+- **Low-Level Firmware Layer (MRS LLC Board)**
 
 These layers communicate through a serial interface.
 
@@ -78,6 +78,8 @@ The main computer runs Ubuntu 22.04 with ROS 2 Humble and is responsible for:
 ## Low-Level Firmware Layer (ESP32)
 
 ![ESP Flow](images/esp_flow.png)
+
+![Drive Controller](images/drive_controller.png)
 
 ### Firmware Overview
 

@@ -11,10 +11,10 @@
   <img src="images/MRS_Titan.gif" alt="Pixel Robot MRS">
 </p>
 
-[Github Link](https://github.com/MRS111-OS/titan_robot)
-
-
 ## Overview
+<p align="center">
+  <img src="images/pixel_main.png" alt="Pixel Robot Main View" style="max-width: 100%; height: auto;">
+</p>
 
 ![Robot Front](images/1.png)
 
